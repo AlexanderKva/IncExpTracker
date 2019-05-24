@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IncExpTracker.TrackIncomePageAddNew">
+    <Grid RowSpacing="1" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />   <!-- Title -->
+            <RowDefinition Height="1*"/>    <!-- Descr. lbl and entry-->
+            <RowDefinition Height="1*"/>    <!-- Amount lbl and entry-->
+            <RowDefinition Height="1*"/>    <!-- Controll Buttons -->
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="2.5*"/>
+        </Grid.ColumnDefinitions>
+        <Label Text="..Add Income.." BackgroundColor="#267f00" FontSize="Large"
+               HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"
+               VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand"
+               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"/>
+
+        <Label Text="Description" TextColor="Black" VerticalTextAlignment="Center" Grid.Row="1" Grid.Column="0" />
+        <Entry x:Name="addIncomeDescr" Text="{Binding Descr},Mode=TwoWay}" Keyboard="Text" Placeholder="Insert Description" 
+               Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
+
+        <Label Text="Amount" TextColor="Black" VerticalTextAlignment="Center" Grid.Row="2" Grid.Column="0" />
+        <Entry x:Name="addIncomeAmount" Text="{Binding StrAmount,Mode=TwoWay}" Keyboard="Telephone" Placeholder="0.00" 
+               Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"/>
+
+        <Button x:Name="InsertIncome" Text="Done!" Clicked="AddIncome" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <Button x:Name="CancelBtn" Text="Cancel" Clicked="CancelBtnIncomePage" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"/>
+
+    </Grid>
+</ContentPage>

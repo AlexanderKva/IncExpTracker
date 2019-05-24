@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IncExpTracker.TrackOverallDetails">
+    <Grid RowSpacing="5" ColumnSpacing="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>            <!-- Message Row -->
+            <RowDefinition Height="1*"/>            <!-- Column Titles -->
+            <RowDefinition Height="6*"/>            <!-- ListView -->
+            <RowDefinition Height="1*"/>            <!-- Sum up line-->
+            <RowDefinition Height="1*"/>            <!-- Add another Income Btn, cancel maybe?!-->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="2.5*"/>
+            
+        </Grid.ColumnDefinitions>
+        <Label Text="Overall Details" TextColor="Black"
+               HorizontalTextAlignment="Center"  HorizontalOptions="FillAndExpand"
+               VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand"
+               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"/>
+
+        <Label Text="Month" TextColor="BlueViolet"
+               HorizontalTextAlignment="Start"  HorizontalOptions="FillAndExpand"
+               VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand"
+               Grid.Row="1" Grid.Column="0" />
+        <Label Text="Income" TextColor="#267f00"
+               HorizontalTextAlignment="Start"  HorizontalOptions="FillAndExpand"
+               VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand"
+               Grid.Row="1" Grid.Column="1" />
+        <Label Text="Expenses"  TextColor="IndianRed"
+               HorizontalTextAlignment="Start"  HorizontalOptions="FillAndExpand"
+               VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand"
+               Grid.Row="1" Grid.Column="2" />
+        <Label Text="Summary" TextColor="Black"
+               HorizontalTextAlignment="Start"  HorizontalOptions="FillAndExpand"
+               VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand"
+               Grid.Row="1" Grid.Column="3" />
+        
+        <Label Text="Total" TextColor="BlueViolet"
+               Grid.Row="3" Grid.Column="0" />
+        <Label Text="{Binding OverallInc,StringFormat='{0:F2}'}" TextColor="#267f00" 
+               Grid.Row="3" Grid.Column="1"/>
+        <Label Text="{Binding OverallExp,StringFormat='{0:F2}'}" TextColor="IndianRed" 
+               Grid.Row="3" Grid.Column="2"/>
+        <Label Text="{Binding OverallSum,StringFormat='{0:F2}'}" TextColor="Black"
+               Grid.Row="3" Grid.Column="3"/>
+
+        <!--<Button Text="Okay" Clicked="OkayBtn" FontSize="Large"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4"/>-->
+
+
+        <ListView x:Name="insideGrid"
+                    Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4"
+                    ItemTapped="SelectedMonthReview"  ItemsSource="{Binding EntryList}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2.5*"/>
+                                <ColumnDefinition Width="2.5*"/>
+                                <ColumnDefinition Width="2.5*"/>
+                                <ColumnDefinition Width="2.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Month}" TextColor="BlueViolet" VerticalTextAlignment="Center" Grid.Column="0"/>
+                            <Label Text="{Binding IncThisMonth,StringFormat='{0:F2}'}" TextColor="#267f00" VerticalTextAlignment="Center" Grid.Column="1"/>
+                            <Label Text="{Binding ExpThisMonth,StringFormat='{0:F2}'}" TextColor="IndianRed" VerticalTextAlignment="Center" Grid.Column="2"/>
+                            <Label Text="{Binding Summary,StringFormat='{0:F2}'}" TextColor="Black" VerticalTextAlignment="Center" Grid.Column="3"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>
+</ContentPage>

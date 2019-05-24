@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IncExpTracker.TrackMonthlyRev">
+
+    <Grid RowSpacing="1" IsVisible="{Binding IsNotBusy}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>            <!-- Title -->
+            <RowDefinition Height="1*"/>            <!-- Income Summary, 2C-span -->            <!-- Expenses Summary, 2C-span -->
+            <RowDefinition Height="6*"/>            <!-- ListView, 2C-span -->
+            <RowDefinition Height="1*"/>            <!-- Summary row -->
+            <RowDefinition Height="1*"/>            <!-- Controll Buttons -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="2.5*"/>
+        </Grid.ColumnDefinitions>
+
+        <ActivityIndicator IsRunning="{Binding IsBusy}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
+                    IsVisible="{Binding IsBusy}"
+                    HeightRequest="40"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand">
+            <ActivityIndicator.WidthRequest>
+                <OnPlatform x:TypeArguments="x:Double" iOS="100" Android="100" WinPhone="400" />
+            </ActivityIndicator.WidthRequest>
+            <ActivityIndicator.Color>
+                <OnPlatform x:TypeArguments="Color"
+                                    iOS="#2499CE" 
+                                    WinPhone="#2499CE" />
+            </ActivityIndicator.Color>
+        </ActivityIndicator>
+
+        <!-- Row 0 Col 0-4 -->
+        <Label x:Name="pageTitle" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black" IsVisible="{Binding IsNotBusy}"
+            Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"/>
+
+        <!-- Row 1 Col 0-1 -->
+        <Label x:Name="incTotalLbl"  TextColor="Black" BackgroundColor="#267f00" VerticalTextAlignment="Center" IsVisible="{Binding IsNotBusy}"
+            Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding IncomeTotal,StringFormat=Your Income this month is: '{0:F2}' }" />
+        <!-- Row 1 Col 2-3 -->
+        <Label x:Name="expTotalLbl" Text="{Binding ExpTotal, StringFormat=Your Expenses this month are: '{0:F2}'}" TextColor="Black" BackgroundColor="IndianRed"
+            VerticalTextAlignment="Center" IsVisible="{Binding IsNotBusy}"
+            Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"/>
+
+        <!-- Row 2 Col 0-1 Income View -->
+        <ListView x:Name="incomeGrid" IsVisible="{Binding IsNotBusy}"
+                Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                ItemTapped="ShowIncome" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2.5*"/>
+                                <ColumnDefinition Width="2.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Descr}" TextColor="#267f00" HorizontalOptions="Start" VerticalTextAlignment="Center" Grid.Column="0"/>
+                            <Label Text="{Binding Amount,StringFormat='{0:F2}'}" TextColor="#267f00" HorizontalOptions="Center" VerticalTextAlignment="Center" Grid.Column="1"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Row 2 Col 2-3 Expenses View -->
+        <ListView x:Name="expensesGrid" IsVisible="{Binding IsNotBusy}"
+                Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"
+                ItemTapped="ShowExpenses" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2.5*"/>
+                                <ColumnDefinition Width="2.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Descr}" TextColor="IndianRed" HorizontalOptions="Start" VerticalTextAlignment="Center" Grid.Column="0"/>
+                            <Label Text="{Binding Amount,StringFormat='{0:F2}'}" TextColor="IndianRed" HorizontalOptions="Center" VerticalTextAlignment="Center" Grid.Column="1"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+        <!-- Row 3 Col 0-3 -->
+        <Label x:Name="sumTextLbl" Text="{Binding Total, StringFormat=Your monthly balance is: '{0:F2}'}" TextColor="Black"
+            HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" 
+            VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"
+            Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"/>
+
+        <!-- Row 4 Col 1-2 -->
+        <!--<Button Text="Okidoke!" Clicked="CancelBtn" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" FontSize="Large"
+            Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"/>-->
+
+
+    </Grid>
+
+</ContentPage>
