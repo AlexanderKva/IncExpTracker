@@ -25,13 +25,16 @@ namespace IncExpTracker
             
             if (descr == "" )
             {
-                titleLbl.Text = "Expenses Details - " + DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month) + " " + date.Year;
+                titleLbl.Text = "Expenses Details - " + DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month) + 
+				" " + date.Year;
                 FillTheGrid();
                 
             }
             else
             {
-                titleLbl.Text = "Expenses Details - " + descr + " - " + DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month) + " " + date.Year; ;
+                titleLbl.Text = "Expenses Details - " + descr + " - " + 
+				DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month) + 
+				" " + date.Year; ;
                 ShowSpecificCat(descr,date);
             }
             BindingContext = _vmEntryList;
@@ -60,15 +63,7 @@ namespace IncExpTracker
         async void ShowSpecificCat(string descr, DateTime date)
         {
             List<ExpensesTrack> expenseEntries = SelectedMonthExpenses(DateTime.Now.Month,DateTime.Now.Year);
-            if (date.Month == DateTime.Now.Month && date.Year == DateTime.Now.Year)
-            {
-                expenseEntries = SelectedMonthExpenses(DateTime.Now.Month, DateTime.Now.Year);
-            }
-            else
-            {
-                expenseEntries = SelectedMonthExpenses(date.Month, date.Year);
-            }
-
+            expenseEntries = SelectedMonthExpenses(date.Month, date.Year);
             VMEntryList listToShow = new VMEntryList();
             foreach (var s in expenseEntries)
             {
@@ -84,19 +79,17 @@ namespace IncExpTracker
                     });
                     listToShow.Summary += s.Amount;
                 }
-                
             }
             _vmEntryList = listToShow;
-            if (date.Month == DateTime.Now.Month)
+            if (date.Month == DateTime.Now.Month && date.Year == DateTime.Now.Year)
             {
                 secTitle.Text = "This month you spent " + _vmEntryList.Summary + " on " + listToShow.EntryList[0].Descr;
             }
             else
             {
-                secTitle.Text = "On " + DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month) + " you spent " + _vmEntryList.Summary + " on " + listToShow.EntryList[0].Descr;
+                secTitle.Text = "On " + DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month) + 
+				" you spent " + _vmEntryList.Summary + " on " + listToShow.EntryList[0].Descr;
             }
-            
-            
         }
 
         async void AddExpenses(object sender, EventArgs e)
