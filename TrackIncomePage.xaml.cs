@@ -23,12 +23,15 @@ namespace IncExpTracker
 
             if (descr == "")
             {
-                titleLbl.Text = "Income Details - " + DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month) + " " + date.Year;
+                titleLbl.Text = "Income Details - " + DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month) + 
+                                " " + date.Year;
                 FillTheGrid();
             }
             else
             {
-                titleLbl.Text = "Income Details - " + descr + " - " + DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month) + " " + date.Year;
+                titleLbl.Text = "Income Details - " + descr + " - " + 
+                                DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month) + 
+                                " " + date.Year;
                 ShowSpecificCat(descr, date);
             }
             BindingContext = _vmEntryList;
@@ -90,7 +93,8 @@ namespace IncExpTracker
             }
             else
             {
-                secTitle.Text = "On " + DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month) + " you got " + _vmEntryList.Summary + " from " + descr + "!";
+                secTitle.Text = "On " + DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month) + 
+                " you got " + _vmEntryList.Summary + " from " + descr + "!";
             }
         }
 
