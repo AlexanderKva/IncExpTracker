@@ -20,12 +20,6 @@ namespace IncExpTracker
             FillTheGrid();
 		}
 
-        //public void FillTheGroupedGrid()
-        //{
-        //    List<OverallDetails> getList = SelectOverallDetails();
-        //    List<VMOverallDetailsList>
-        //}
-
         public void FillTheGrid()
         {
             List<OverallDetails> detailsList = SelectOverallDetails();

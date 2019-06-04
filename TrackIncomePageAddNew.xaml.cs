@@ -64,7 +64,7 @@ namespace IncExpTracker
                 {
                     _vmEntry.HoursToString = _vmEntry.HoursToString.Replace(",", ".");
                     hours = Double.Parse(_vmEntry.HoursToString, culture);
-                    if (_vmEntry.OverTimeToString == "")
+                    if (_vmEntry.OverTimeToString == null)
                     {
                         _vmEntry.OverTimeToString = "0";
                     }
@@ -102,27 +102,9 @@ namespace IncExpTracker
                 newItem.Amount = amount;
                 newItem.Descr = _vmEntry.Descr;
                 newItem.Date = DateTime.Now;
+                newItem.Hours = hours;
+                newItem.OverTime = overtime;
                 SqlTableIncome.InsertData(newItem);
-
-                if (_vmEntry.Descr == "PayDay")
-                {
-                    IncomeTrack findId = new IncomeTrack();
-                    findId.Date = _vmEntry.Date;
-                    findId.Descr = _vmEntry.Descr;
-                    findId.Amount = _vmEntry.Amount;
-
-                    //incomeId = FindId(_vmEntry.Descr, _vmEntry.Date, amount);
-                    //if (incomeId != -1)
-                    //{
-                    //    WorkHours eHours = new WorkHours();
-                    //    eHours.Id = incomeId;
-                    //    eHours.Date = _vmEntry.Date;
-                    //    eHours.Hours = hours;
-                    //    eHours.Overtime = overtime;
-                    //    InsertData(eHours);
-                    //}
-                    
-                }
 
                 await DisplayAlert("Done", "Income Added!", "Great!");
             }

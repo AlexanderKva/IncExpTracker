@@ -8,7 +8,7 @@
             <RowDefinition Height="1*"/>            <!-- Column Titles -->
             <RowDefinition Height="6*"/>            <!-- ListView -->
             <RowDefinition Height="1*"/>            <!-- Sum up line-->
-            <RowDefinition Height="1*"/>            <!-- Add another Income Btn, cancel maybe?!-->
+            <RowDefinition Height="1*"/>            <!-- <blank space> -->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2.5*"/>

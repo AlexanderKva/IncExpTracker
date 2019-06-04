@@ -8,7 +8,7 @@
             <RowDefinition Height="1*"/>    <!-- Descr. lbl and entry-->
             <RowDefinition Height="1*"/>    <!-- Amount lbl and entry-->
             <RowDefinition Height="1*"/>    <!-- Controll Buttons -->
-            <RowDefinition Height="6*"/>
+            <RowDefinition Height="6*"/>    <!-- <blank space> -->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2.5*"/>

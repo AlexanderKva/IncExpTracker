@@ -10,7 +10,7 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="3*"/> <!-- Income - Expenses Buttons -->
             <RowDefinition Height="3*"/> <!-- Monthly - Overall Details Buttons -->
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/> <!-- "WorkHours" Button -->
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>

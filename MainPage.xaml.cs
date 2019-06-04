@@ -52,8 +52,6 @@ string libraryPath = Environment.GetFolderPath(Environment.SpecialFolder.Persona
                 flag = true;
             }
 
-            //List<IncomeTrack> zz = SelectIncome();
-            //AddMyTransactions.AddHours();
             //AddMyTransactions.AddIncome();
             //AddMyTransactions.AddExpenses();
         }

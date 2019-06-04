@@ -49,7 +49,7 @@ namespace IncExpTracker
                     Descr = s.Descr,
                     Amount = s.Amount,
                     Date = s.Date,
-                    DateToString = /*s.Date.DayOfWeek + " " + */s.Date.ToString("ddd dd MMM HH:mm")
+                    DateToString = s.Date.ToString("ddd dd MMM HH:mm")
                 });
                 total += s.Amount;
             }
@@ -76,7 +76,7 @@ namespace IncExpTracker
                         Descr = s.Descr,
                         Amount = s.Amount,
                         Date = s.Date,
-                        DateToString =/* s.Date.DayOfWeek + " " + */s.Date.ToString("ddd dd MMM HH:mm")
+                        DateToString =s.Date.ToString("ddd dd MMM HH:mm")
                     });
                     listToShow.Summary += s.Amount;
                 }

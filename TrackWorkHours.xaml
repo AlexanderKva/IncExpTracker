@@ -5,11 +5,11 @@
     <ContentPage.Content>
         <Grid RowSpacing="5" ColumnSpacing="5">
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="6*"/>                <!--  -->
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>                <!-- Header -->
+                <RowDefinition Height="1*"/>                <!-- Field labels -->
+                <RowDefinition Height="6*"/>                <!-- WorkHours ListView -->
+                <RowDefinition Height="1*"/>                <!-- WorkHours ListView's summary -->
+                <RowDefinition Height="1*"/>                <!-- WorkHours ListView's summary detailed < Scheduled-Overtime> -->
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2.5*"/>

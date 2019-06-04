@@ -7,10 +7,10 @@
             <RowDefinition Height="1*" />   <!-- Title -->
             <RowDefinition Height="1*"/>    <!-- Descr. lbl and entry-->
             <RowDefinition Height="1*"/>    <!-- Amount lbl and entry-->
-            <RowDefinition Height="1*"/>    
-            <RowDefinition Height="1*"/>    
+            <RowDefinition Height="1*"/>    <!-- Schedules hours lbl and entry -->
+            <RowDefinition Height="1*"/>    <!-- Overtime hours lbl and entry -->
             <RowDefinition Height="1*"/>    <!-- Controll Buttons -->
-            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>    <!-- <blank space> -->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2.5*"/>

@@ -258,22 +258,7 @@ namespace IncExpTracker
             {
                 InsertEntry(descr, newIncomeInstance, newExpenseInstance, DateTime.Now);
             }
-            //else
-            //// There is already an Entry for the current month
-            //// Update Inc/Exp - Summ. 
-            //{
-            //    if (newIncomeInstance == 0 && incomeInstance == 0)
-            //    {
-            //        item.ExpThisMonth = item.ExpThisMonth - expensesInstance + newExpenseInstance;
-            //    }
-            //    else
-            //    {
-            //        item.IncThisMonth = item.IncThisMonth - incomeInstance + newIncomeInstance;
-            //    }
-
-            //    item.Summary = item.IncThisMonth - item.ExpThisMonth;
-            //    
-            //}
+           
             db.Update(item);
             db.Dispose();
             GC.Collect();

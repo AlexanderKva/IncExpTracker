@@ -6,10 +6,10 @@
     <Grid RowSpacing="1" IsVisible="{Binding IsNotBusy}" >
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>            <!-- Title -->
-            <RowDefinition Height="1*"/>            <!-- Income Summary, 2C-span -->            <!-- Expenses Summary, 2C-span -->
+            <RowDefinition Height="1*"/>            <!-- Income Summary, 2C-span  ||  Expenses Summary, 2C-span -->
             <RowDefinition Height="6*"/>            <!-- ListView, 2C-span -->
             <RowDefinition Height="1*"/>            <!-- Summary row -->
-            <RowDefinition Height="1*"/>            <!-- Controll Buttons -->
+            <RowDefinition Height="1*"/>            <!-- Hour Btn => TrackWorkHours page -->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2.5*"/>
@@ -96,11 +96,11 @@
             HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" 
             VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"
             Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"/>
-
+        <!-- Row 4 Col 0-2 -->
         <Button x:Name="WorkHoursBtn" Clicked="ShowWorkHours" Text="Hours" TextColor="MediumVioletRed" 
                 HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
                 FontSize="Medium"
-                Grid.Row="4" Grid.Column="3"/>
+                Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"/>
     </Grid>
 
 </ContentPage>
