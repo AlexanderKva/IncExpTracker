@@ -109,7 +109,6 @@ namespace IncExpTracker
                     a.incTips = s.incTips;
                 }
             }
-            
             db.Dispose();
             GC.Collect();
             db.Close();
@@ -158,35 +157,14 @@ namespace IncExpTracker
                 item.Month = DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month);
                 item.Year = date.Year;
 
-                if (descr == "PayDay")
-                {
-                    item.incPayDay += inc;
-                }
-                else if (descr == "Tips")
-                {
-                    item.incTips += inc;
-                }
-                else
-                {
-                    item.incOther += inc;
-                }
+                if (descr == "PayDay") { item.incPayDay += inc; }
+                else if (descr == "Tips") { item.incTips += inc; }
+                else { item.incOther += inc; }
 
-                if (descr == "Food")
-                {
-                    item.expFood += exp;
-                }
-                else if (descr == "Gasoline")
-                {
-                    item.expGas += exp;
-                }
-                else if (descr == "Ciggies")
-                {
-                    item.expCiggies += exp;
-                }
-                else
-                {
-                    item.expOther += exp;
-                }
+                if (descr == "Food") { item.expFood += exp; }
+                else if (descr == "Gasoline") { item.expGas += exp; }
+                else if (descr == "Ciggies") { item.expCiggies += exp; }
+                else { item.expOther += exp; }
 
                 db.Update(item);
             }
@@ -201,35 +179,14 @@ namespace IncExpTracker
                 item.Month = DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month);
                 item.Year = date.Year;
 
-                if (descr == "PayDay")
-                {
-                    item.incPayDay = inc;
-                }
-                else if (descr == "Tips")
-                {
-                    item.incTips = inc;
-                }
-                else
-                {
-                    item.incOther = inc;
-                }
+                if (descr == "PayDay") { item.incPayDay = inc; }
+                else if (descr == "Tips") { item.incTips = inc; }
+                else { item.incOther = inc; }
 
-                if (descr == "Food")
-                {
-                    item.expFood = exp;
-                }
-                else if (descr == "Gasoline")
-                {
-                    item.expGas = exp;
-                }
-                else if (descr == "Ciggies")
-                {
-                    item.expCiggies = exp;
-                }
-                else
-                {
-                    item.expOther = exp;
-                }
+                if (descr == "Food") { item.expFood = exp; }
+                else if (descr == "Gasoline") { item.expGas = exp; }
+                else if (descr == "Ciggies") { item.expCiggies = exp; }
+                else { item.expOther = exp; }
                 db.Insert(item);
             }
             db.Dispose();

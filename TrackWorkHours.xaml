@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IncExpTracker.TrackWorkHours">
+    <ContentPage.Content>
+        <Grid RowSpacing="5" ColumnSpacing="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="6*"/>                <!--  -->
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="2.5*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--<Label Text="{Binding MonthToString,StringFormat= Work hours for '{0:F2}'}"-->
+            <Label x:Name="titleLbl"
+                   VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                   Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"/>
+            <Label Text="Hours" TextColor="#267f00" 
+                   VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                   Grid.Row="1" Grid.Column="0"/>
+            <Label Text="OverTime" TextColor="IndianRed" 
+                   VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                   Grid.Row="1" Grid.Column="1"/>
+            <Label Text="Date" TextColor="BlueViolet" 
+                   VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                   Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"/>
+
+            
+
+            <ListView x:Name="insideGrid" 
+                    Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4"
+                    ItemsSource="{Binding EntryList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2.5*"/>
+                                    <ColumnDefinition Width="2.5*"/>
+                                    <ColumnDefinition Width="2.5*"/>
+                                    <ColumnDefinition Width="2.5*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding HoursToString}" TextColor="#267f00" 
+                                       VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                                       Grid.Column="0"/>
+                                
+                                <Label Text="{Binding OverTimeToString}" TextColor="IndianRed" 
+                                       VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                                       Grid.Column="1"/>
+                                
+                                <Label Text="{Binding DateToString}" TextColor="BlueViolet" 
+                                       VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                                       Grid.Column="2" Grid.ColumnSpan="2"/>
+                                
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            <!--<Label Text="{Binding HoursSum,StringFormat=Your work hours this month are : '{0:F2}'}" TextColor="Black"-->
+            <Label x:Name="downLbl"
+                   VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                   Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"/>
+
+            <Label Text="{Binding ScheduledSum,StringFormat=Scheduled hours: '{0:F2}'}" TextColor="Black"
+                   VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                   Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"/>
+
+            <Label Text="{Binding ExtraSum,StringFormat=Overtime hours: '{0:F2}'}" TextColor="Black"
+                   VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                   Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"/>
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

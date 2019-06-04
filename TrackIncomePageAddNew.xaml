@@ -7,8 +7,10 @@
             <RowDefinition Height="1*" />   <!-- Title -->
             <RowDefinition Height="1*"/>    <!-- Descr. lbl and entry-->
             <RowDefinition Height="1*"/>    <!-- Amount lbl and entry-->
+            <RowDefinition Height="1*"/>    
+            <RowDefinition Height="1*"/>    
             <RowDefinition Height="1*"/>    <!-- Controll Buttons -->
-            <RowDefinition Height="6*"/>
+            <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2.5*"/>
@@ -29,10 +31,18 @@
         <Entry x:Name="addIncomeAmount" Text="{Binding StrAmount,Mode=TwoWay}" Keyboard="Telephone" Placeholder="0.00" 
                Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"/>
 
+        <Label Text="Hours" TextColor="Black" VerticalTextAlignment="Center" Grid.Row="3" Grid.Column="0"/>
+        <Entry x:Name="addHours" Text="{Binding HoursToString,Mode=TwoWay}" Keyboard="Telephone" Placeholder="0" IsEnabled="{Binding IsPayDay,Mode=TwoWay}"
+               Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"/>
+        
+        <Label Text="OverTime" TextColor="Black" VerticalTextAlignment="Center" Grid.Row="4" Grid.Column="0"/>
+        <Entry x:Name="addOverTime" Text="{Binding OverTimeToString,Mode=TwoWay}" Keyboard="Telephone" Placeholder="0" IsEnabled="{Binding IsPayDay,Mode=TwoWay}"
+               Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"/>
+
         <Button x:Name="InsertIncome" Text="Done!" Clicked="AddIncome" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
-                Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>
+                Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"/>
         <Button x:Name="CancelBtn" Text="Cancel" Clicked="CancelBtnIncomePage" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
-                Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"/>
+                Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2"/>
 
     </Grid>
 </ContentPage>

@@ -91,18 +91,16 @@
             </ListView.ItemTemplate>
         </ListView>
 
-
         <!-- Row 3 Col 0-3 -->
         <Label x:Name="sumTextLbl" Text="{Binding Total, StringFormat=Your monthly balance is: '{0:F2}'}" TextColor="Black"
             HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" 
             VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"
             Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"/>
 
-        <!-- Row 4 Col 1-2 -->
-        <!--<Button Text="Okidoke!" Clicked="CancelBtn" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" FontSize="Large"
-            Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"/>-->
-
-
+        <Button x:Name="WorkHoursBtn" Clicked="ShowWorkHours" Text="Hours" TextColor="MediumVioletRed" 
+                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                FontSize="Medium"
+                Grid.Row="4" Grid.Column="3"/>
     </Grid>
 
 </ContentPage>

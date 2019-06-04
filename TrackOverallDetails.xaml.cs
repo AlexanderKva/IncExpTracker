@@ -20,6 +20,12 @@ namespace IncExpTracker
             FillTheGrid();
 		}
 
+        //public void FillTheGroupedGrid()
+        //{
+        //    List<OverallDetails> getList = SelectOverallDetails();
+        //    List<VMOverallDetailsList>
+        //}
+
         public void FillTheGrid()
         {
             List<OverallDetails> detailsList = SelectOverallDetails();
@@ -33,20 +39,13 @@ namespace IncExpTracker
                     Month = s.Month,
                     MonthToInt = s.MonthToInt,
                     Summary = s.Summary,
-                    Year = s.Year
-                    
-                });
+                    Year = s.Year,
+            });
                 _vmOveralDetList.OverallExp += s.ExpThisMonth;
                 _vmOveralDetList.OverallInc += s.IncThisMonth;
-                
             }
             _vmOveralDetList.OverallSum = _vmOveralDetList.OverallInc - _vmOveralDetList.OverallExp;
         }
-
-        //async void OkayBtn(object sender, EventArgs e)
-        //{
-        //    await Navigation.PushAsync(new MainPage());
-        //}
 
         async void SelectedMonthReview(object sender, EventArgs e)
         {

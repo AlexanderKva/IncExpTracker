@@ -51,6 +51,9 @@
         <Button x:Name="OveralRev" Text="Overall Details" TextColor="BlueViolet" Clicked="OveralDetails" FontSize="Large" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
                 IsVisible="{Binding IsNotBusy}"
                 Grid.Column="1" Grid.Row="3" />
+        <Button x:Name="Hours" Text="Hours" TextColor="MediumVioletRed" Clicked="ZZWorkHours" FontSize="Large" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                IsVisible="{Binding IsNotBusy}"
+                Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"/>
     </Grid>
 
 </ContentPage>

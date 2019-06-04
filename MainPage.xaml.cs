@@ -9,7 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using static IncExpTracker.App;
+using static IncExpTracker.SqlTableIncome;
 using static IncExpTracker.SqlTableOveralDetails;
+
 
 namespace IncExpTracker
 {
@@ -47,18 +49,13 @@ string libraryPath = Environment.GetFolderPath(Environment.SpecialFolder.Persona
                 SqlTableExpenses.CreateExpensesTable();
                 SqlTableOveralDetails.CreateOverallDetailsTable();
                 CheckForNewEntries();
-                //SqlTableExpenses.createViews();
                 flag = true;
             }
 
-            //List<SqlTableIncome.IncomeTrack> check = new List<SqlTableIncome.IncomeTrack>();
-            //check = SqlTableIncome.SelectIncome();
-            //SqlTableExpenses.TestView();
-
+            //List<IncomeTrack> zz = SelectIncome();
+            //AddMyTransactions.AddHours();
             //AddMyTransactions.AddIncome();
             //AddMyTransactions.AddExpenses();
-
-            //SqlTableExpenses.checkview();
         }
 
         async private Task<bool> IncomeAdd(object sender, EventArgs e)
@@ -77,7 +74,6 @@ string libraryPath = Environment.GetFolderPath(Environment.SpecialFolder.Persona
                 _vmEntry.IsBusy = false;
             }
             return true;
-            
         }
         async private Task<bool> ExpensesAdd(object sender, EventArgs e)
         {
@@ -95,18 +91,12 @@ string libraryPath = Environment.GetFolderPath(Environment.SpecialFolder.Persona
                 _vmEntry.IsBusy = false;
             }
             return true;
-
         }
 
         async private Task<bool>MonthlyReview(object sender, EventArgs e)
         {
             try
             {
-                //using (UserDialogs.Instance.Loading("Loading text here..."))
-                //{
-                //    await Navigation.PushAsync(new TrackMonthlyRev(DateTime.Now.Month, DateTime.Now.Year));
-                //}
-
                 _vmEntry.IsBusy = true;
                 await Navigation.PushAsync(new TrackMonthlyRev(DateTime.Now.Month, DateTime.Now.Year));
             }
@@ -116,11 +106,9 @@ string libraryPath = Environment.GetFolderPath(Environment.SpecialFolder.Persona
             }
             finally
             {
-                
                 _vmEntry.IsBusy = false;
             }
             return true;
-
         }
 
         async private Task<bool> OveralDetails(object sender, EventArgs e)
@@ -139,7 +127,23 @@ string libraryPath = Environment.GetFolderPath(Environment.SpecialFolder.Persona
                 _vmEntry.IsBusy = false;
             }
             return true;
-            
+        }
+        async private Task<bool> ZZWorkHours(object sender, EventArgs e)
+        {
+            try
+            {
+                _vmEntry.IsBusy = true;
+                await Navigation.PushAsync(new TrackWorkHours(DateTime.Now));
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                _vmEntry.IsBusy = false;
+            }
+            return true;
         }
     }
 }

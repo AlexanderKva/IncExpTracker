@@ -25,16 +25,12 @@ namespace IncExpTracker
             
             if (descr == "" )
             {
-                titleLbl.Text = "Expenses Details - " + DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month) + 
-				" " + date.Year;
+                titleLbl.Text = "Expenses Details - " + DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month) + " " + date.Year;
                 FillTheGrid();
-                
             }
             else
             {
-                titleLbl.Text = "Expenses Details - " + descr + " - " + 
-				DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month) + 
-				" " + date.Year; ;
+                titleLbl.Text = "Expenses Details - " + descr + " - " + DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month) + " " + date.Year; ;
                 ShowSpecificCat(descr,date);
             }
             BindingContext = _vmEntryList;
@@ -53,17 +49,15 @@ namespace IncExpTracker
                     Descr = s.Descr,
                     Amount = s.Amount,
                     Date = s.Date,
-                    DateToString = s.Date.DayOfWeek + " " + s.Date.ToString("dd MMM HH:mm")
+                    DateToString = /*s.Date.DayOfWeek + " " + */s.Date.ToString("ddd dd MMM HH:mm")
                 });
                 total += s.Amount;
             }
             _vmEntryList.Summary = total;
-            
         }
         async void ShowSpecificCat(string descr, DateTime date)
         {
-            List<ExpensesTrack> expenseEntries = SelectedMonthExpenses(DateTime.Now.Month,DateTime.Now.Year);
-            expenseEntries = SelectedMonthExpenses(date.Month, date.Year);
+            List<ExpensesTrack> expenseEntries = SelectedMonthExpenses(date.Month,date.Year);
             VMEntryList listToShow = new VMEntryList();
             foreach (var s in expenseEntries)
             {
@@ -75,7 +69,7 @@ namespace IncExpTracker
                         Descr = s.Descr,
                         Amount = s.Amount,
                         Date = s.Date,
-                        DateToString = s.Date.DayOfWeek + " " + s.Date.ToString("dd MMM HH:mm")
+                        DateToString = /*s.Date.DayOfWeek + " " +*/ s.Date.ToString("ddd dd MMM HH:mm")
                     });
                     listToShow.Summary += s.Amount;
                 }
@@ -87,8 +81,8 @@ namespace IncExpTracker
             }
             else
             {
-                secTitle.Text = "On " + DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month) + 
-				" you spent " + _vmEntryList.Summary + " on " + listToShow.EntryList[0].Descr;
+                secTitle.Text = "On " + DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month) + " you spent " + _vmEntryList.Summary + 
+                                " on " + listToShow.EntryList[0].Descr;
             }
         }
 

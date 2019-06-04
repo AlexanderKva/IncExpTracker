@@ -48,15 +48,9 @@
         <Label Text="{Binding OverallSum,StringFormat='{0:F2}'}" TextColor="Black"
                Grid.Row="3" Grid.Column="3"/>
 
-        <!--<Button Text="Okay" Clicked="OkayBtn" FontSize="Large"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="FillAndExpand"
-                Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4"/>-->
+        <ListView x:Name="insideGrid" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4"
+                  ItemTapped="SelectedMonthReview" ItemsSource="{Binding EntryList}">
 
-
-        <ListView x:Name="insideGrid"
-                    Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4"
-                    ItemTapped="SelectedMonthReview"  ItemsSource="{Binding EntryList}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

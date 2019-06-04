@@ -12,8 +12,6 @@ namespace IncExpTracker
         private double _overall_inc;
         private double _overall_exp;
 
-
-
         public List<VMOveralDetails> EntryList
         {
             get
@@ -64,7 +62,6 @@ namespace IncExpTracker
                 OnPropertyChanged("OverallExp");
             }
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -18,6 +18,9 @@ namespace IncExpTracker
         private double _expTotal;
         private bool _isBusy = false;
         private bool _isNotBusy = true;
+        private bool _isPayDay;
+        private string _hoursToString;
+        private string _overTimeToString;
 
         public int Id { get; set; }
         public DateTime Date
@@ -56,12 +59,16 @@ namespace IncExpTracker
             {
                 _descr = value;
                 OnPropertyChanged("Descr");
+                if (_descr == "PayDay")
+                {
+                    IsPayDay = true;
+                }
+                else { IsPayDay = false; }
             }
         }
         public string StrAmount
         {
-            get
-            {
+            get{
                 return _strAmount;
             }
             set
@@ -140,6 +147,36 @@ namespace IncExpTracker
             {
                 _isNotBusy = value;
                 OnPropertyChanged("IsNotBusy");
+            }
+        }
+        
+        public bool IsPayDay
+        {
+            get { return _isPayDay; }
+            set
+            {
+                _isPayDay = value;
+                OnPropertyChanged("IsPayDay");
+            }
+        }
+
+        public string HoursToString
+        {
+            get { return _hoursToString; }
+            set
+            {
+                _hoursToString = value;
+                OnPropertyChanged("HoursToString");
+            }
+        }
+
+        public string OverTimeToString
+        {
+            get { return _overTimeToString; }
+            set
+            {
+                _overTimeToString = value;
+                OnPropertyChanged("OverTimeToString");
             }
         }
 

@@ -4,7 +4,6 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static IncExpTracker.SqlTableExpenses;
@@ -26,11 +25,9 @@ namespace IncExpTracker
             BindingContext = _vmEntry;
             m = month;
             y = year;
-            pageTitle.Text = "Monthly Review - " + DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(month) + " " + year;
-            Test();
+            pageTitle.Text = "Monthly Review - " + new DateTime(year, month, 01).ToString("MMMM yyyy", CultureInfo.InvariantCulture);
+            FillThePage(month,year);
            
-            
-
             if (month == DateTime.Now.Month && year == DateTime.Now.Year)
             {
                 incTotalLbl.Text = "Your income this month is: " + _vmEntry.IncomeTotal;
@@ -38,21 +35,11 @@ namespace IncExpTracker
             }
             else
             {
-                incTotalLbl.Text = "Your income for " + DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(month) + " was: " + _vmEntry.IncomeTotal;
-                expTotalLbl.Text = "Your expenses for " + DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(month) + " was: " + _vmEntry.ExpTotal;
+                incTotalLbl.Text = "Your income for " + new DateTime(year, month, 01).ToString("MMMM", CultureInfo.InvariantCulture) + " was: " + _vmEntry.IncomeTotal;
+                expTotalLbl.Text = "Your expenses for " + new DateTime(year, month, 01).ToString("MMMM", CultureInfo.InvariantCulture) + " was: " + _vmEntry.ExpTotal;
             }
         }
 
-        async void Test()
-        {
-            _vmEntry.IsBusy = true;
-            if (await FillThePage(m, y) == true)               // Activity Indicator On/Off
-            {
-                _vmEntry.IsBusy = false;
-            }
-            else _vmEntry.IsBusy = true;
-            
-        }
         async private Task<bool> FillThePage(int month,int year)
         {
             try
@@ -81,10 +68,8 @@ namespace IncExpTracker
                     _vmEntry.Date = Convert.ToDateTime(test);
                 }
 
-
                 List<VMMonthlyDetails> incList = SqlTableIncome.checkview(month, year);
                 List<VMMonthlyDetails> expList = SqlTableExpenses.checkview(month, year);
-
 
                 incomeGrid.ItemsSource = incList;
                 expensesGrid.ItemsSource = expList;
@@ -93,11 +78,8 @@ namespace IncExpTracker
             catch (Exception)
             {
                 return false;
-                
             }
-            
         }
-
         
         async void ShowIncome(object sender, EventArgs e)
         {
@@ -113,10 +95,9 @@ namespace IncExpTracker
             await Navigation.PushAsync(new TrackExpensesPage(a,new DateTime(y,m,01)));
         }
 
-        //async void CancelBtn(object sender, EventArgs e)
-        //{
-        //    await Navigation.PushAsync(new MainPage());
-        //}
-
+        async void ShowWorkHours(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TrackWorkHours(new DateTime(y, m, 01)));
+        }
     }
 }

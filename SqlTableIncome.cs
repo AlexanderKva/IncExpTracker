@@ -26,7 +26,10 @@ namespace IncExpTracker
             public double Amount { get; set; }
             [MaxLength(20),Column("descr")]
             public string Descr { get; set; }
-
+            [Column("hours")]
+            public double Hours { get; set; }
+            [Column("overTime")]
+            public double OverTime { get; set; }
         }
 
         // Creates Database if it doesnt exist already
@@ -36,7 +39,6 @@ namespace IncExpTracker
             Environment.GetFolderPath(Environment.SpecialFolder.Personal),
             "database.db3");
             // dbPath contains a valid file path for the database file to be stored    
-
         }
 
         // Creates Table if it doesnt exist already
@@ -58,7 +60,7 @@ namespace IncExpTracker
             foreach (var s in table)
             {
                 returnTable.Add(s);
-                //Console.WriteLine("--" + s.Date + "--");
+                Console.WriteLine("\n--" + s.Descr + "--" + s.Id);
             }
             GC.Collect();
             db.Close();
@@ -99,7 +101,9 @@ namespace IncExpTracker
                     returnEntry.Date = s.Date;
                     returnEntry.Amount = s.Amount;
                     returnEntry.Descr = s.Descr;
-
+                    returnEntry.HoursToString = s.Hours.ToString();
+                    returnEntry.OverTimeToString = s.OverTime.ToString();
+                    
                 }
             }
             db.Dispose();
@@ -109,14 +113,12 @@ namespace IncExpTracker
         }
 
         /*  Insert Into Income
-         *  SqlTableOveralDetails has to be up to date as well (via UpdateEntries)
+         *  SqlTableOveralDetails has to be up-to-date as well (via UpdateEntries)
          */
         public static void InsertData(IncomeTrack newIncome)
         {
             var db = new SQLiteConnection(dbPath);
-            //*********************************
             SqlTableOveralDetails.InsertEntry(newIncome.Descr, newIncome.Amount, 0, newIncome.Date);
-            //*********************************
             db.Insert(newIncome);
             db.Dispose();
             GC.Collect();
@@ -124,7 +126,7 @@ namespace IncExpTracker
         }
 
         /*  Update Income where #id == id
-         *  SqlTableOveralDetails has to be up to date as well (via UpdateEntries)
+         *  SqlTableOveralDetails has to be up-to-date as well (via UpdateEntries)
          */
         public static void UpdateData(IncomeTrack entryToUpdate)
         {
@@ -146,7 +148,7 @@ namespace IncExpTracker
         }
 
         /* Delete where #id == id
-         * SqlTableOveralDetails has to be up to date as well (via UpdateEntries)
+         * SqlTableOveralDetails has to be up-to-date as well (via UpdateEntries)
          *      (just does the Math and adds or subtracts amounts)
          */
         public static void DeleteRow(int id)
@@ -162,7 +164,6 @@ namespace IncExpTracker
                     local.Date = s.Date;
                     local.Amount = s.Amount;
                     local.Descr = s.Descr;
-
                 }
             }
             SqlTableOveralDetails.UpdateEntries(local.Descr, local.Date.Month, local.Date.Year, local.Amount, 0, 0, 0);
@@ -226,14 +227,10 @@ namespace IncExpTracker
                                                 "from Income " +
                                                 "where date > ? AND date < ? " +
                                                 "group by descr", new DateTime(year, month, 01).Ticks,
-                                                 new DateTime(year, month, 01).AddMonths(1).AddDays(-1).Ticks);
-
+                                                 new DateTime(year, month, 01).AddMonths(1).AddMinutes(-1).Ticks);
             foreach (var s in a)
             {
-                //if (s.Date.Month == month)
-                //{
                     retList.Add(s);
-                //}
             }
             db.Dispose();
             GC.Collect();
@@ -241,11 +238,22 @@ namespace IncExpTracker
             return retList;
         }
 
-        public void checksmth()
+        public static int FindId(string descr, DateTime date , double amount)
         {
+            int found = -1;
             var db = new SQLiteConnection(dbPath);
+            var table = db.Table<IncomeTrack>();
+            foreach (var s in table)
+            {
+                if (descr == s.Descr && date == s.Date && amount == s.Amount)
+                {
+                    found = s.Id;
+                }
+            }
 
+            return found;
         }
 
+        
     }
 }

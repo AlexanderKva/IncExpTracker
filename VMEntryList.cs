@@ -10,9 +10,12 @@ namespace IncExpTracker
         private List<VMEntry> _entryList = new List<VMEntry>();
         private double _summary;
         private string _dateToString;
+        private double _hoursSum;
+        private string _monthToString;
+        private double _scheduledSum;
+        private double _extraSum;
         private bool _isBusy = false;
         private bool _isNotBusy = true;
-
 
         public List<VMEntry> EntryList
         {
@@ -54,6 +57,19 @@ namespace IncExpTracker
             }
         }
 
+        public string MonthToString
+        {
+            get
+            {
+                return _monthToString;
+            }
+            set
+            {
+                _monthToString = value;
+                OnPropertyChanged("MonthToString");
+            }
+        }
+
         public bool IsBusy
         {
             get { return _isBusy; }
@@ -73,6 +89,36 @@ namespace IncExpTracker
             {
                 _isNotBusy = value;
                 OnPropertyChanged("IsNotBusy");
+            }
+        }
+
+        public double HoursSum
+        {
+            get { return _hoursSum; }
+            set
+            {
+                _hoursSum = value;
+                OnPropertyChanged("HoursSum");
+            }
+        }
+
+        public double ScheduledSum
+        {
+            get { return _scheduledSum; }
+            set
+            {
+                _scheduledSum = value;
+                OnPropertyChanged("ScheduledSum");
+            }
+        }
+
+        public double ExtraSum
+        {
+            get { return _extraSum; }
+            set
+            {
+                _extraSum = value;
+                OnPropertyChanged("ExtraSum");
             }
         }
 

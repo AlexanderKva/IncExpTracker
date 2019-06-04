@@ -32,7 +32,6 @@ namespace IncExpTracker
             Console.WriteLine("Creating database, if it doesn't already exist");
             var db = new SQLiteConnection(dbPath);
             db.CreateTable<ExpensesTrack>();
-
         }
 
         // Select * 
@@ -93,7 +92,7 @@ namespace IncExpTracker
         }
 
         /* Insert Into Expenses (..)
-         * SqlTableOveralDetails has to be up to date as well
+         * SqlTableOveralDetails has to be up-to-date as well
          */
         public static void InsertData(ExpensesTrack newEntry)
         {
@@ -106,7 +105,7 @@ namespace IncExpTracker
         }
 
         /* Update Expenses where #id == id 
-         * SqlTableOveralDetails has to be up to date as well (via UpdateEntries)
+         * SqlTableOveralDetails has to be up-to-date as well (via UpdateEntries)
          */
         public static void UpdateData(ExpensesTrack entryToUpdate)
         {
@@ -128,7 +127,7 @@ namespace IncExpTracker
         }
 
         /* Delete where #id == id
-         * SqlTableOveralDetails has to be up to date as well (via UpdateEntries)
+         * SqlTableOveralDetails has to be up-to-date as well (via UpdateEntries)
          *      (just does the Math and adds or subtracts amounts)
          */
         public static void DeleteRow(int id)
@@ -144,7 +143,6 @@ namespace IncExpTracker
                     local.Date = s.Date;
                     local.Amount = s.Amount;
                     local.Descr = s.Descr;
-
                 }
             }
             SqlTableOveralDetails.UpdateEntries(local.Descr,local.Date.Month, local.Date.Year, 0, 0, local.Amount, 0);
@@ -214,14 +212,10 @@ namespace IncExpTracker
                                                 "from Expenses " +
                                                 "where date > ? AND date < ? " +
                                                 "group by descr", new DateTime(year, month, 01).Ticks,
-                                                 new DateTime(year, month, 01).AddMonths(1).AddDays(-1).Ticks);
-
+                                                 new DateTime(year, month, 01).AddMonths(1).AddMinutes(-1).Ticks);
             foreach (var s in a)
             {
-                //if (s.Date.Month == month)
-                //{
                     retList.Add(s);
-                //}
             }
             db.Dispose();
             GC.Collect();
