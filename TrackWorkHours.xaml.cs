@@ -31,7 +31,7 @@ namespace IncExpTracker
 
         async void FillTheGrid()
         {
-            _vmEntryList.IsBusy = true;
+            
             List<IncomeTrack> incomeEntries = SelectedMonthIncome(date.Month, date.Year);
             foreach (var s in incomeEntries)
             {

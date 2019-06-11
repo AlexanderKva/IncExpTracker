@@ -17,10 +17,28 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="TrackFixedCostsAddNew.xaml.cs">
+      <DependentUpon>TrackFixedCostsAddNew.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="TrackFixedCosts.xaml.cs">
+      <DependentUpon>TrackFixedCosts.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="TrackExpensesByCat.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="TrackExpensesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="TrackExpensesPageAddNew.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="TrackFixedCosts.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="TrackFixedCostsAddNew.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="TrackIncomePage.xaml">

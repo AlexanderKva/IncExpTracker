@@ -18,10 +18,20 @@ namespace IncExpTracker
         VMEntry _vmEntry = new VMEntry();
         VMEntryList _vmEntryList = null;
         double total = 0;
+        string des = "";
         public TrackExpensesPage (string descr,DateTime date)
 		{
             InitializeComponent();
             _vmEntryList = new VMEntryList();
+            des = descr;
+            if (descr == "")
+            {
+                allTimeDetBtn.Text = "All Time";
+            }
+            else
+            {
+                allTimeDetBtn.Text = "All Time";
+            }
             
             if (descr == "" )
             {
@@ -33,9 +43,24 @@ namespace IncExpTracker
                 titleLbl.Text = "Expenses Details - " + descr + " - " + DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month) + " " + date.Year; ;
                 ShowSpecificCat(descr,date);
             }
+            PickerFiller();
             BindingContext = _vmEntryList;
             DateTime now = DateTime.Now;
             int currentMonth = now.Month;
+
+            picker.SelectedIndexChanged += (sender, args) =>
+            {
+                if (picker.SelectedIndex > -1)
+                {
+                    string a = picker.SelectedItem.ToString();
+                    AddExpenses(a);
+                }
+                else
+                {
+                    return;
+                }
+                
+            };
         }
 
         async void FillTheGrid()
@@ -86,34 +111,27 @@ namespace IncExpTracker
             }
         }
 
-        async void AddExpenses(object sender, EventArgs e)
+        async void PickerFiller()
+        {
+            List<VMMonthlyDetails> filler = SelectMonthlyExpenses(DateTime.Now.Month, DateTime.Now.Year);
+            foreach (var s in filler)
+            {
+                picker.Items.Add(s.Descr);
+            }
+            picker.Items.Add("Other");
+        }
+
+        async void AddExpenses(string a)
         {
             string returnAnswer = "";
-            
-            var answer = await DisplayActionSheet("New Item", null, null,"Food","Gasoline","Ciggies","Other");
-            if (answer == "Food")
+
+            if (a != "Other")
             {
-                returnAnswer = "Food";
+                returnAnswer = a;
             }
-            else if (answer == "Gasoline")
-            {
-                returnAnswer = "Gasoline";
-            }
-            else if (answer == "Ciggies")
-            {
-                returnAnswer = "Ciggies";
-            }
-            else if (answer == "Other")
-            {
-                returnAnswer = "";
-            }
-            else 
-            {
-                return;
-            }
-            
             await Navigation.PushAsync(new TrackExpensesPageAddNew(-1, returnAnswer));
         }
+
 
         async void TappedItem(object sender, EventArgs e)
         {
@@ -141,6 +159,16 @@ namespace IncExpTracker
             {
                 return;
             }
+        }
+
+        async void FixedCostsBtn(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TrackFixedExpenses());
+        }
+
+        async void AllTimeDetBtn(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TrackExpensesByCat(des));
         }
 
         async void CancelBtnExpensesPage(object sender, EventArgs e)

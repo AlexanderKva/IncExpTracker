@@ -10,28 +10,31 @@
             <RowDefinition Height="1*"/>    <!-- Add another Income Btn, cancel maybe?!-->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="2.5*"/>
         </Grid.ColumnDefinitions>
+        
 
-        <Label x:Name="titleLbl" Text="Income Details" TextColor="Black"
+        <Label x:Name="titleLbl" TextColor="Black"
                HorizontalTextAlignment="Center"  HorizontalOptions="FillAndExpand"
                VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand"
-               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+               Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"/>
 
         <Label x:Name="secTitle" Text="{Binding Summary,StringFormat='Your expenses this month are {0:F2}'}" BackgroundColor="IndianRed" TextColor="Black"
                HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"
                VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand"
-               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
-        <Button Text="Add Expense" TextColor="IndianRed" Clicked="AddExpenses"
-                FontSize="Large"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="FillAndExpand"
-                Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>
-
+               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"/>
         
+        <Picker x:Name="picker" Title="Add Expense" TextColor="IndianRed"
+                FontSize="Small" 
+                HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"   />
+
+
         <ListView x:Name="insideGrid" IsVisible="{Binding IsNotBusy}"
-                    Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                    Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4"
                     ItemTapped="TappedItem" ItemsSource="{Binding EntryList}">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -54,6 +57,14 @@
             </ListView.ItemTemplate>
         </ListView>
         
+        <!-- Fixed costs Btn -->
+        <Button Text="Fixed Costs" FontSize="Medium" TextColor="BlueViolet" Clicked="FixedCostsBtn"
+                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                Grid.Row="0" Grid.Column="0" />
+        
+        <Button x:Name="allTimeDetBtn" FontSize="Medium" TextColor="BlueViolet" Clicked="AllTimeDetBtn"
+                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                Grid.Row="0" Grid.Column="3" />
 
     </Grid>
 </ContentPage>

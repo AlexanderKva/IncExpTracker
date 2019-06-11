@@ -14,8 +14,6 @@ namespace IncExpTracker
         private string _monthToString;
         private double _scheduledSum;
         private double _extraSum;
-        private bool _isBusy = false;
-        private bool _isNotBusy = true;
 
         public List<VMEntry> EntryList
         {
@@ -67,28 +65,6 @@ namespace IncExpTracker
             {
                 _monthToString = value;
                 OnPropertyChanged("MonthToString");
-            }
-        }
-
-        public bool IsBusy
-        {
-            get { return _isBusy; }
-            set
-            {
-                _isBusy = value;
-                OnPropertyChanged("IsBusy");
-                if (_isBusy == true) IsNotBusy = false;
-                else IsNotBusy = true;
-            }
-        }
-
-        public bool IsNotBusy
-        {
-            get { return _isNotBusy; }
-            set
-            {
-                _isNotBusy = value;
-                OnPropertyChanged("IsNotBusy");
             }
         }
 

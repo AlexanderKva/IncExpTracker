@@ -23,11 +23,15 @@
                HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"
                VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand"
                Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
-        <Button Text="Add Income" TextColor="#267f00" Clicked="AddIncomePage"
+        <!--<Button Text="Add Income" TextColor="#267f00" Clicked="AddIncomePage"
                 FontSize="Large"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="FillAndExpand"
-                Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>
+                Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>-->
+        <Picker x:Name="picker" Title="Add Expense" 
+                FontSize="Small" 
+                HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"   />
 
         <ListView x:Name="insideGrid" 
                     Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"

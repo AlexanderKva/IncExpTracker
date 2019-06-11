@@ -68,8 +68,8 @@ namespace IncExpTracker
                     _vmEntry.Date = Convert.ToDateTime(test);
                 }
 
-                List<VMMonthlyDetails> incList = SqlTableIncome.checkview(month, year);
-                List<VMMonthlyDetails> expList = SqlTableExpenses.checkview(month, year);
+                List<VMMonthlyDetails> incList = SqlTableIncome.SelectMonthlyIncome(month, year);
+                List<VMMonthlyDetails> expList = SqlTableExpenses.SelectMonthlyExpenses(month, year);
 
                 incomeGrid.ItemsSource = incList;
                 expensesGrid.ItemsSource = expList;

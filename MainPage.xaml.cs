@@ -48,9 +48,17 @@ string libraryPath = Environment.GetFolderPath(Environment.SpecialFolder.Persona
                 SqlTableIncome.CreateIncomeTable();
                 SqlTableExpenses.CreateExpensesTable();
                 SqlTableOveralDetails.CreateOverallDetailsTable();
+                SqlTableFixedCosts.CreateFixedCostsTable();
+                SqlTableFixedCosts.UpdateFixedCostsTable();
                 CheckForNewEntries();
+                
                 flag = true;
             }
+
+
+
+
+
 
             //AddMyTransactions.AddIncome();
             //AddMyTransactions.AddExpenses();

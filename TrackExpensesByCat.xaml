@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IncExpTracker.TrackExpensesByCat">
+
+    <Grid RowSpacing="5" ColumnSpacing="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>            <!-- Message Row -->
+            <RowDefinition Height="8*"/>            <!-- ListView -->
+            <RowDefinition Height="1*"/>            <!-- Add another Income Btn, cancel maybe?! -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="2.5*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label x:Name="titleLbl"
+               HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"
+               VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"
+               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"/>
+
+        <ListView x:Name="insideGrid" IsVisible="{Binding IsNotBusy}" ItemTapped="TappedItem"
+                    Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"
+                    ItemsSource="{Binding EntryList}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Descr}" TextColor="BlueViolet" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Column="0"/>
+                            <Label Text="{Binding Amount}" TextColor="IndianRed" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Column="1"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>
+</ContentPage>

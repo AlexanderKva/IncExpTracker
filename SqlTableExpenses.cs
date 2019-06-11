@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace IncExpTracker
@@ -151,77 +152,125 @@ namespace IncExpTracker
             GC.Collect();
             db.Close();
         }
-
-        /*  Select * where #Month == month && #year == year && #Descr == s.descr
-         *  Returns a List of VMEntries of a specific category
+       
+        /* Query that returns expenses 
+         * of a specific month
+         * groupped by Description
          */
-        public static List<VMEntry> SelectSpecificItems(int month, int year)
-        {
-            List<VMEntry> list2ret = new List<VMEntry>();
-            VMEntry foodItems = new VMEntry();
-            VMEntry gasItems = new VMEntry();
-            VMEntry cigsItems = new VMEntry();
-            VMEntry others = new VMEntry();
-
-            foodItems.Descr = "Food";
-            gasItems.Descr = "Gasoline";
-            cigsItems.Descr = "Ciggies";
-            others.Descr = "Other Expenses";
-
-            var db = new SQLiteConnection(dbPath);
-            var table = db.Table<ExpensesTrack>();
-            foreach (var s in table)
-            {
-                if (month == s.Date.Month && year == s.Date.Year)
-                {
-                    if (s.Descr == "Food")
-                    {
-                        foodItems.Total = foodItems.Total + s.Amount;
-                    }
-                    else if (s.Descr == "Gasoline")
-                    {
-                        gasItems.Total = gasItems.Total + s.Amount;
-                    }
-                    else if (s.Descr == "Ciggies")
-                    {
-                        cigsItems.Total = cigsItems.Total + s.Amount;
-                    }
-                    else
-                    {
-                        others.Total = others.Total + s.Amount;
-                    }
-                }
-            }
-            list2ret.Add(foodItems);
-            list2ret.Add(gasItems);
-            list2ret.Add(cigsItems);
-            list2ret.Add(others);
-            db.Dispose();
-            GC.Collect();
-            db.Close();
-            return list2ret;
-        }
-
-        //Query that returns expenses groupped by Description
-        public static List<VMMonthlyDetails> checkview(int month, int year)
+        public static List<VMMonthlyDetails> SelectMonthlyExpenses(int month, int year)
         {
             List<VMMonthlyDetails> retList = new List<VMMonthlyDetails>();
             var db = new SQLiteConnection(dbPath);
+           
 
             var a = db.Query<VMMonthlyDetails>("select descr, sum(amount) as amount,date " +
-                                                "from Expenses " +
-                                                "where date > ? AND date < ? " +
-                                                "group by descr", new DateTime(year, month, 01).Ticks,
-                                                 new DateTime(year, month, 01).AddMonths(1).AddMinutes(-1).Ticks);
+                                               "from Expenses " +
+                                               "where date > ? AND date < ? " +
+                                               "group by descr", new DateTime(year, month, 01).Ticks,
+                                                new DateTime(year, month, 01).AddMonths(1).AddMinutes(-1).Ticks);
             foreach (var s in a)
             {
                     retList.Add(s);
             }
+            
             db.Dispose();
             GC.Collect();
             db.Close();
             return retList;
         }
+        /* Query that returns expenses
+         * from the beginning of time
+         * grouped by Description
+         */ 
+        public static List<VMMonthlyDetails> ExpensesAllTime()
+        {
+            List<VMMonthlyDetails> result = new List<VMMonthlyDetails>();
+            var db = new SQLiteConnection(dbPath);
+            var table = db.Table<ExpensesTrack>();
 
+            ExpensesTrack getFirstEntrysDate = table.FirstOrDefault();
+
+            var a = db.Query<VMMonthlyDetails>("select descr, sum(amount) as amount " +
+                                               "from Expenses " +
+                                               "group by descr ");
+
+            foreach (var s in a)
+            {
+                result.Add(s);
+            }
+
+            result.FirstOrDefault().Date = getFirstEntrysDate.Date;
+
+            db.Dispose();
+            GC.Collect();
+            db.Close();
+            return result;
+        }
+        /* Query that returns a specific Expense
+         * from <Expenses Track> table
+         * from the beginning of time
+         * grouped by Month
+         */
+        public static List<VMMonthlyDetails> SpecificExpenseAllTime(string descr)
+        {
+            List<VMMonthlyDetails> result = new List<VMMonthlyDetails>();
+            List<VMMonthlyDetails> zz = new List<VMMonthlyDetails>();
+            
+            var db = new SQLiteConnection(dbPath);
+            var table = db.Table<ExpensesTrack>();
+
+            foreach (var s in table)
+            {
+                if (s.Descr == descr)
+                {
+                    zz.Add(new VMMonthlyDetails
+                    {
+                        Descr = s.Date.ToString("MMMM yyyy", CultureInfo.InvariantCulture),
+                        Amount = s.Amount,
+                        Date = s.Date
+                    });
+                }
+            }
+
+            var firstOne = zz.FirstOrDefault();
+            var lastOne = zz.LastOrDefault();
+
+            DateTime viewDate = new DateTime(firstOne.Date.Year, firstOne.Date.Month, 1);
+
+            int lenght = (lastOne.Date.Year - firstOne.Date.Year) * 12 + (lastOne.Date.Month - firstOne.Date.Month);
+
+            result.Add(new VMMonthlyDetails
+            {
+                Descr = firstOne.Date.ToString("MMMM yyyy", CultureInfo.InvariantCulture),
+                Date = firstOne.Date
+            });
+            
+            for (int i = 0; i < lenght; i++)
+            {
+                viewDate = viewDate.AddMonths(1);
+                result.Add(new VMMonthlyDetails
+                {
+                    Descr = viewDate.ToString("MMMM yyyy", CultureInfo.InvariantCulture),
+                    Date = viewDate.Date
+                });
+            }
+
+            foreach (var s in zz)
+            {
+                foreach (var x in result)
+                {
+                    if (s.Descr == x.Descr )
+                    {
+                        x.Amount += s.Amount;
+                    }
+                }
+            }
+
+            db.Dispose();
+            GC.Collect();
+            db.Close();
+
+            return result;
+        }
     }
 }

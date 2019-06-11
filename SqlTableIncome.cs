@@ -218,7 +218,7 @@ namespace IncExpTracker
         }
 
         //Query that returns income groupped by Description
-        public static List<VMMonthlyDetails> checkview(int month, int year)
+        public static List<VMMonthlyDetails> SelectMonthlyIncome(int month, int year)
         {
             List<VMMonthlyDetails> retList = new List<VMMonthlyDetails>();
             var db = new SQLiteConnection(dbPath);

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static IncExpTracker.SqlTableExpenses;
+using static IncExpTracker.SqlTableFixedCosts;
 
 namespace IncExpTracker
 {
@@ -39,6 +40,19 @@ namespace IncExpTracker
         async void AddExpense(object sender, EventArgs e)
         {
             double amount = 0;
+            List<FixedExpenses> validationCheck = SelectFixedExpenses();
+
+            foreach (var s in validationCheck)
+            {
+                if (s.Descr == _vmEntry.Descr)
+                {
+                    await DisplayAlert("Invalid input", "Specific Descr. already exists on Fixed Expenses table, please insert something else", "Ok");
+                    return;
+                }
+            }
+
+
+
             try
             {
                 _vmEntry.StrAmount = _vmEntry.StrAmount.Replace(",", ".");

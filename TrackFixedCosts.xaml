@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IncExpTracker.TrackFixedExpenses">
+    <ContentPage.Content>
+        <Grid RowSpacing="5" ColumnSpacing="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>        <!-- Message Row -->
+                <RowDefinition Height="1*"/>        <!-- Sum up Income !?(label and entry)-->
+                <RowDefinition Height="7*"/>        <!-- ListView -->
+                <RowDefinition Height="1*"/>        <!-- Add another Income Btn, cancel maybe?!-->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label x:Name="titleLbl" Text="Fixed Costs" TextColor="IndianRed"
+               HorizontalTextAlignment="Center"  HorizontalOptions="FillAndExpand"
+               VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand"
+               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5"/>
+
+            <Label Text="Fixed Exp." TextColor="ForestGreen"
+                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   Grid.Row="1" Grid.Column="0"/>
+            
+            <Label Text="Amount" TextColor="IndianRed"
+                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   Grid.Row="1" Grid.Column="1"/>
+            
+            <Label Text="Next Payment on" TextColor="BlueViolet"
+                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   Grid.Row="1" Grid.Column="2"/>
+
+            <Label Text="Payment Every" TextColor="DarkViolet"
+                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   Grid.Row="1" Grid.Column="3"/>
+
+            <Label Text="Is Enabled" TextColor="Purple"
+                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   Grid.Row="1" Grid.Column="4"/>
+            
+            
+
+            <ListView x:Name="insideGrid" 
+                    Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5"
+                     ItemsSource="{Binding EntryList}" ItemTapped="FixedCostsTap">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    
+                                </Grid.ColumnDefinitions>
+                                
+                                <Label Text="{Binding Descr}" TextColor="ForestGreen" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Column="0"/>
+                                <Label Text="{Binding Amount}" TextColor="IndianRed" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Column="1"/>
+                                <Label Text="{Binding NextUpdToString}" TextColor="BlueViolet" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Column="2"/>
+                                <Label Text="{Binding UpdEvery}" TextColor="DarkViolet" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Column="3"/>
+                                <Label Text="{Binding IsEnabled}" TextColor="Purple" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Column="4"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button x:Name="AddFixedCostBtn" Text="Add New Fixed Cost" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                    Clicked="AddNewFixedCost"
+                    Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -6,8 +6,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>            <!-- Message Row -->
             <RowDefinition Height="1*"/>            <!-- Column Titles -->
-            <RowDefinition Height="6*"/>            <!-- ListView -->
-            <RowDefinition Height="1*"/>            <!-- Sum up line-->
+            <RowDefinition Height="7*"/>            <!-- ListView -->
             <RowDefinition Height="1*"/>            <!-- <blank space> -->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>

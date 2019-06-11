@@ -9,6 +9,8 @@ namespace IncExpTracker
     {
         private int _id;
         private DateTime _date;
+        //private DateTime _minDate;
+        //private DateTime _maxDate;
         private double _amount;
         private string _descr;
         private double _total;
@@ -21,6 +23,8 @@ namespace IncExpTracker
         private bool _isPayDay;
         private string _hoursToString;
         private string _overTimeToString;
+        
+        
 
         public int Id { get; set; }
         public DateTime Date
@@ -35,6 +39,30 @@ namespace IncExpTracker
                 OnPropertyChanged("Date");
             }
         }
+        //public DateTime MinDate
+        //{
+        //    get
+        //    {
+        //        return _minDate;
+        //    }
+        //    set
+        //    {
+        //        _minDate = value;
+        //        OnPropertyChanged("MinDate");
+        //    }
+        //}
+        //public DateTime MaxDate
+        //{
+        //    get
+        //    {
+        //        return _maxDate;
+        //    }
+        //    set
+        //    {
+        //        _maxDate = value;
+        //        OnPropertyChanged("MaxDate");
+        //    }
+        //}
 
         public double Amount
         {
@@ -179,6 +207,8 @@ namespace IncExpTracker
                 OnPropertyChanged("OverTimeToString");
             }
         }
+
+       
 
         public event PropertyChangedEventHandler PropertyChanged;
 

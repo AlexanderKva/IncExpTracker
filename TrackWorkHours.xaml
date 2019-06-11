@@ -81,7 +81,7 @@
                    VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
                    Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-            <Label Text="{Binding ExtraSum,StringFormat=Overtime hours: '{0:F2}'}" TextColor="Black"
+            <Label Text="{Binding ExtraSum,StringFormat=Overtime : '{0:F2}'}" TextColor="Black"
                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
                    VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
                    Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"/>

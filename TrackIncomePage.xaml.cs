@@ -31,7 +31,22 @@ namespace IncExpTracker
                 titleLbl.Text = "Income Details - " + descr + " - " + DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(date.Month) + " " + date.Year;
                 ShowSpecificCat(descr, date);
             }
+            PickerFiller();
             BindingContext = _vmEntryList;
+
+            picker.SelectedIndexChanged += (sender, args) =>
+            {
+                if (picker.SelectedIndex > -1)
+                {
+                    string a = picker.SelectedItem.ToString();
+                    AddIncomePage(a);
+                }
+                else
+                {
+                    return;
+                }
+
+            };
 
             DateTime now = DateTime.Now;
             int currentMonth = now.Month;
@@ -39,7 +54,7 @@ namespace IncExpTracker
 
         async void FillTheGrid()
         {
-            _vmEntryList.IsBusy = true;
+            
             List<IncomeTrack> incomeEntries = SelectedMonthIncome(DateTime.Now.Month, DateTime.Now.Year);
             foreach (var s in incomeEntries)
             {
@@ -58,8 +73,7 @@ namespace IncExpTracker
 
         async void ShowSpecificCat(string descr,DateTime date)
         {
-           
-            _vmEntryList.IsBusy = true;
+            
             List<IncomeTrack> incomeEntries = new List<IncomeTrack>();
             incomeEntries = SelectedMonthIncome(date.Month, date.Year);
             
@@ -94,27 +108,42 @@ namespace IncExpTracker
             }
         }
 
-        async void AddIncomePage(object sender, EventArgs e)
+        async void PickerFiller()
+        {
+            List<VMMonthlyDetails> filler = SelectMonthlyIncome(DateTime.Now.Month, DateTime.Now.Year);
+            foreach (var s in filler)
+            {
+                picker.Items.Add(s.Descr);
+            }
+            picker.Items.Add("Other");
+        }
+
+        async void AddIncomePage(string a)
         {
             string returnAnswer = "";
 
-            var answer = await DisplayActionSheet("New Item", null, null, "PayDay", "Tips", "Other");
-            if (answer == "PayDay")
+            if (a != "Other")
             {
-                returnAnswer = "PayDay";
+                returnAnswer = a;
             }
-            else if (answer == "Tips")
-            {
-                returnAnswer = "Tips";
-            }
-            else if (answer == "Other")
-            {
-                returnAnswer = "";
-            }
-            else
-            {
-                return;
-            }
+
+            //var answer = await DisplayActionSheet("New Item", null, null, "PayDay", "Tips", "Other");
+            //if (answer == "PayDay")
+            //{
+            //    returnAnswer = "PayDay";
+            //}
+            //else if (answer == "Tips")
+            //{
+            //    returnAnswer = "Tips";
+            //}
+            //else if (answer == "Other")
+            //{
+            //    returnAnswer = "";
+            //}
+            //else
+            //{
+            //    return;
+            //}
             await Navigation.PushAsync(new TrackIncomePageAddNew(-1,returnAnswer));
         }
 
