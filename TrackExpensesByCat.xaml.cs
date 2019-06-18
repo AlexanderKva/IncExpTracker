@@ -18,6 +18,7 @@ namespace IncExpTracker
 		public TrackExpensesByCat (string descr)
 		{
 			InitializeComponent ();
+            
             des = descr;
             string titleDate = "";
             if (descr == "")
@@ -40,6 +41,8 @@ namespace IncExpTracker
                 titleLbl.Text = "All-Time Expenses - " + descr;
             }
             titleLbl.TextColor = Color.IndianRed;
+           
+            
 
         }
 
@@ -52,10 +55,7 @@ namespace IncExpTracker
                 titleLbl.Text = "All-Time Expenses - " + getDescr.Descr;
                 SpecificExpense(getDescr.Descr);
             }
-            else
-            {
-
-            }
+            
         }
 
         string FillTheGrid()

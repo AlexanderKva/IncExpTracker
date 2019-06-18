@@ -55,11 +55,6 @@ string libraryPath = Environment.GetFolderPath(Environment.SpecialFolder.Persona
                 flag = true;
             }
 
-
-
-
-
-
             //AddMyTransactions.AddIncome();
             //AddMyTransactions.AddExpenses();
         }
