@@ -13,7 +13,7 @@ namespace IncExpTracker
         public static void AddIncome()
         {
             // May
-            List<IncomeTrack> addincome = new List<IncomeTrack>
+            List<IncomeTrack> addIncomeMay = new List<IncomeTrack>
             {
                 new IncomeTrack
                 {
@@ -284,187 +284,318 @@ namespace IncExpTracker
 
 
             };
-            //June
-            addincome.Add(new IncomeTrack
+            // June
+            List<IncomeTrack> addIncomeJune = new List<IncomeTrack>
             {
-                Descr = "PayDay",
-                Amount = 42.75,
-                Date = DateTime.ParseExact("01/06/2019 17:06:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
-                Hours = 9,
-                OverTime = 0.5
-            });
-            addincome.Add(new IncomeTrack
+                new IncomeTrack
+                {
+                    Descr = "PayDay",
+                    Amount = 42.75,
+                    Date = DateTime.ParseExact("01/06/2019 17:06:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                    Hours = 9,
+                    OverTime = 0.5
+                },
+                new IncomeTrack
+                {
+                    Descr = "Tips",
+                    Amount = 13.6,
+                    Date = DateTime.ParseExact("01/06/2019 17:06:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new IncomeTrack
+                {
+                    Descr = "PayDay",
+                    Amount = 45,
+                    Date = DateTime.ParseExact("02/06/2019 17:29:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                    Hours = 10,
+                    OverTime = 0
+                },
+                new IncomeTrack
+                {
+                    Descr = "Tips",
+                    Amount = 14.9,
+                    Date = DateTime.ParseExact("02/06/2019 17:29:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new IncomeTrack
+                {
+                    Descr = "PayDay",
+                    Amount = 42.75,
+                    Date = DateTime.ParseExact("03/06/2019 17:31:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                    Hours = 9,
+                    OverTime = 0.5
+                },
+                new IncomeTrack
+                {
+                    Descr = "Tips",
+                    Amount = 13.1,
+                    Date = DateTime.ParseExact("03/06/2019 17:31:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new IncomeTrack
+                {
+                    Descr = "PayDay",
+                    Amount = 38.25,
+                    Date = DateTime.ParseExact("07/06/2019 17:31:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                    Hours = 8,
+                    OverTime = 0.5
+                },
+                new IncomeTrack
+                {
+                    Descr = "Tips",
+                    Amount = 11.75,
+                    Date = DateTime.ParseExact("07/06/2019 17:31:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new IncomeTrack
+                {
+                    Descr = "PayDay",
+                    Amount = 40.5,
+                    Date = DateTime.ParseExact("08/06/2019 17:31:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                    Hours = 9,
+                    OverTime = 0
+                },
+                new IncomeTrack
+                {
+                    Descr = "Tips",
+                    Amount = 14.2,
+                    Date = DateTime.ParseExact("08/06/2019 17:31:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new IncomeTrack
+                {
+                    Descr = "PayDay",
+                    Amount = 45,
+                    Date = DateTime.ParseExact("09/06/2019 16:38:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                    Hours = 10,
+                    OverTime = 0
+                },
+                new IncomeTrack
+                {
+                    Descr = "Tips",
+                    Amount = 16.15,
+                    Date = DateTime.ParseExact("09/06/2019 16:38:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new IncomeTrack
+                {
+                    Descr = "PayDay",
+                    Amount = 40.5,
+                    Date = DateTime.ParseExact("10/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                    Hours = 9,
+                    OverTime = 0
+                },
+                new IncomeTrack
+                {
+                    Descr = "Tips",
+                    Amount = 6.4,
+                    Date = DateTime.ParseExact("10/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new IncomeTrack
+                {
+                    Descr = "PayDay",
+                    Amount = 40.5,
+                    Date = DateTime.ParseExact("11/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                    Hours = 9,
+                    OverTime = 0
+                },
+                new IncomeTrack
+                {
+                    Descr = "Tips",
+                    Amount = 9.55,
+                    Date = DateTime.ParseExact("11/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new IncomeTrack
+                {
+                    Descr = "PayDay",
+                    Amount = 38.25,
+                    Date = DateTime.ParseExact("14/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                    Hours = 8,
+                    OverTime = 0.5
+                },
+                new IncomeTrack
+                {
+                    Descr = "Tips",
+                    Amount = 11.8,
+                    Date = DateTime.ParseExact("14/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new IncomeTrack
+                {
+                    Descr = "PayDay",
+                    Amount = 47.25,
+                    Date = DateTime.ParseExact("15/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                    Hours = 9,
+                    OverTime = 1.5
+                },
+                new IncomeTrack
+                {
+                    Descr = "Tips",
+                    Amount = 15.55,
+                    Date = DateTime.ParseExact("15/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new IncomeTrack
+                {
+                    Descr = "PayDay",
+                    Amount = 45,
+                    Date = DateTime.ParseExact("15/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                    Hours = 10,
+                    OverTime = 0
+                },
+                new IncomeTrack
+                {
+                    Descr = "Tips",
+                    Amount = 15.5,
+                    Date = DateTime.ParseExact("15/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new IncomeTrack
+                {
+                    Descr = "PayDay",
+                    Amount = 40.5,
+                    Date = DateTime.ParseExact("17/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                    Hours = 9,
+                    OverTime = 0
+                },
+                new IncomeTrack
+                {
+                    Descr = "Tips",
+                    Amount = 12.2,
+                    Date = DateTime.ParseExact("17/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new IncomeTrack
+                {
+                    Descr = "PayDay",
+                    Amount = 40.5,
+                    Date = DateTime.ParseExact("18/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                    Hours = 9,
+                    OverTime = 0
+                },
+                new IncomeTrack
+                {
+                    Descr = "Tips",
+                    Amount = 9.2,
+                    Date = DateTime.ParseExact("18/06/2019 17:41:15", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new IncomeTrack
+                {
+                    Descr = "PayDay",
+                    Amount = 36,
+                    Date = DateTime.ParseExact("21/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                    Hours = 8,
+                    OverTime = 0
+                },
+                new IncomeTrack
+                {
+                    Descr = "Tips",
+                    Amount = 10,
+                    Date = DateTime.ParseExact("21/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new IncomeTrack
+                {
+                    Descr = "PayDay",
+                    Amount = 45,
+                    Date = DateTime.ParseExact("22/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                    Hours = 10,
+                    OverTime = 0
+                },
+                new IncomeTrack
+                {
+                    Descr = "Tips",
+                    Amount = 10.6,
+                    Date = DateTime.ParseExact("22/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new IncomeTrack
+                {
+                    Descr = "PayDay",
+                    Amount = 45,
+                    Date = DateTime.ParseExact("23/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                    Hours = 9,
+                    OverTime = 0
+                },
+                new IncomeTrack
+                {
+                    Descr = "Tips",
+                    Amount = 9.9,
+                    Date = DateTime.ParseExact("23/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new IncomeTrack
+                {
+                    Descr = "PayDay",
+                    Amount = 42.75,
+                    Date = DateTime.ParseExact("28/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                    Hours = 9,
+                    OverTime = 0.5
+                },
+                new IncomeTrack
+                {
+                    Descr = "Tips",
+                    Amount = 9.25,
+                    Date = DateTime.ParseExact("28/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new IncomeTrack
+                {
+                    Descr = "PayDay",
+                    Amount = 33.75,
+                    Date = DateTime.ParseExact("29/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                    Hours = 7,
+                    OverTime = 0.5
+                },
+                new IncomeTrack
+                {
+                    Descr = "Tips",
+                    Amount = 6.75,
+                    Date = DateTime.ParseExact("29/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                }
+            };
+            // July
+            List<IncomeTrack> addIncomeJuly = new List<IncomeTrack>
             {
-                Descr = "Tips",
-                Amount = 13.6,
-                Date = DateTime.ParseExact("01/06/2019 17:06:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addincome.Add(new IncomeTrack
-            {
-                Descr = "PayDay",
-                Amount = 45,
-                Date = DateTime.ParseExact("02/06/2019 17:29:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
-                Hours = 10,
-                OverTime = 0
-            });
-            addincome.Add(new IncomeTrack
-            {
-                Descr = "Tips",
-                Amount = 14.9,
-                Date = DateTime.ParseExact("02/06/2019 17:29:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addincome.Add(new IncomeTrack
-            {
-                Descr = "PayDay",
-                Amount = 42.75,
-                Date = DateTime.ParseExact("03/06/2019 17:31:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
-                Hours = 9,
-                OverTime = 0.5
-            });
-            addincome.Add(new IncomeTrack
-            {
-                Descr = "Tips",
-                Amount = 13.1,
-                Date = DateTime.ParseExact("03/06/2019 17:31:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addincome.Add(new IncomeTrack
-            {
-                Descr = "PayDay",
-                Amount = 38.25,
-                Date = DateTime.ParseExact("07/06/2019 17:31:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
-                Hours = 8,
-                OverTime = 0.5
-            });
-            addincome.Add(new IncomeTrack
-            {
-                Descr = "Tips",
-                Amount = 11.75,
-                Date = DateTime.ParseExact("07/06/2019 17:31:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addincome.Add(new IncomeTrack
-            {
-                Descr = "PayDay",
-                Amount = 40.5,
-                Date = DateTime.ParseExact("08/06/2019 17:31:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
-                Hours = 9,
-                OverTime = 0
-            });
-            addincome.Add(new IncomeTrack
-            {
-                Descr = "Tips",
-                Amount = 14.2,
-                Date = DateTime.ParseExact("08/06/2019 17:31:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addincome.Add(new IncomeTrack
-            {
-                Descr = "PayDay",
-                Amount = 45,
-                Date = DateTime.ParseExact("09/06/2019 16:38:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
-                Hours = 10,
-                OverTime = 0
-            });
-            addincome.Add(new IncomeTrack
-            {
-                Descr = "Tips",
-                Amount = 16.15,
-                Date = DateTime.ParseExact("09/06/2019 16:38:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addincome.Add(new IncomeTrack
-            {
-                Descr = "PayDay",
-                Amount = 40.5,
-                Date = DateTime.ParseExact("10/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
-                Hours = 9,
-                OverTime = 0
-            });
-            addincome.Add(new IncomeTrack
-            {
-                Descr = "Tips",
-                Amount = 6.4,
-                Date = DateTime.ParseExact("10/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addincome.Add(new IncomeTrack
-            {
-                Descr = "PayDay",
-                Amount = 40.5,
-                Date = DateTime.ParseExact("11/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
-                Hours = 9,
-                OverTime = 0
-            });
-            addincome.Add(new IncomeTrack
-            {
-                Descr = "Tips",
-                Amount = 9.55,
-                Date = DateTime.ParseExact("11/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addincome.Add(new IncomeTrack
-            {
-                Descr = "PayDay",
-                Amount = 38.25,
-                Date = DateTime.ParseExact("14/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
-                Hours = 8,
-                OverTime = 0.5
-            });
-            addincome.Add(new IncomeTrack
-            {
-                Descr = "Tips",
-                Amount = 11.8,
-                Date = DateTime.ParseExact("14/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addincome.Add(new IncomeTrack
-            {
-                Descr = "PayDay",
-                Amount = 47.25,
-                Date = DateTime.ParseExact("15/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
-                Hours = 9,
-                OverTime = 1.5
-            });
-            addincome.Add(new IncomeTrack
-            {
-                Descr = "Tips",
-                Amount = 15.55,
-                Date = DateTime.ParseExact("15/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addincome.Add(new IncomeTrack
-            {
-                Descr = "PayDay",
-                Amount = 45,
-                Date = DateTime.ParseExact("15/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
-                Hours = 10,
-                OverTime = 0
-            });
-            addincome.Add(new IncomeTrack
-            {
-                Descr = "Tips",
-                Amount = 15.5,
-                Date = DateTime.ParseExact("15/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addincome.Add(new IncomeTrack
-            {
-                Descr = "PayDay",
-                Amount = 40.5,
-                Date = DateTime.ParseExact("17/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
-                Hours = 9,
-                OverTime = 0
-            });
-            addincome.Add(new IncomeTrack
-            {
-                Descr = "Tips",
-                Amount = 12.2,
-                Date = DateTime.ParseExact("17/06/2019 17:41:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
+                new IncomeTrack
+                {
+                    Descr = "PayDay",
+                    Amount = 42.75,
+                    Date = DateTime.ParseExact("05/07/2019 18:08:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                    Hours = 9,
+                    OverTime = 0.5
+                },
+                new IncomeTrack
+                {
+                    Descr = "Tips",
+                    Amount = 7.45,
+                    Date = DateTime.ParseExact("25/07/2019 18:08:10", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                    Hours = 0,
+                    OverTime = 0
+                },
+                new IncomeTrack
+                {
+                    Descr = "PayDay",
+                    Amount = 45,
+                    Date = DateTime.ParseExact("06/07/2019 18:07:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                    Hours = 10,
+                    OverTime = 0
+                },
+                new IncomeTrack
+                {
+                    Descr = "Tips",
+                    Amount = 5.3,
+                    Date = DateTime.ParseExact("06/07/2019 18:08:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                    Hours = 0,
+                    OverTime = 0
+                },
+            };
 
-            foreach (var s in addincome)
+
+            foreach (var s in addIncomeMay)
             {
-                InsertData(s);
+                SqlTableIncome.InsertData(s);
             }
-
+            foreach (var s in addIncomeJune)
+            {
+                SqlTableIncome.InsertData(s);
+            }
+            foreach (var s in addIncomeJuly)
+            {
+                SqlTableIncome.InsertData(s);
+            }
         }
 
         public static void AddExpenses()
         {
-            //May
-            List<ExpensesTrack> addexpense = new List<ExpensesTrack>
+            // May
+            List<ExpensesTrack> addExpensesMay = new List<ExpensesTrack>
             {
                 new ExpensesTrack
                 {
@@ -972,320 +1103,674 @@ namespace IncExpTracker
                     Date = DateTime.ParseExact("30/05/2019 10:59:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
                 }
             };
-            //June
-            addexpense.Add(new ExpensesTrack
+            // June
+            List<ExpensesTrack> addExpensesJune = new List<ExpensesTrack>
             {
-                Descr = "Μπύρα",
-                Amount = 2.6,
-                Date = DateTime.ParseExact("01/06/2019 15:39:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
+                new ExpensesTrack
+                {
+                    Descr = "Μπύρα",
+                    Amount = 2.6,
+                    Date = DateTime.ParseExact("01/06/2019 15:39:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ciggies",
+                    Amount = 8.6,
+                    Date = DateTime.ParseExact("01/06/2019 15:39:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Gasoline",
+                    Amount = 4.5,
+                    Date = DateTime.ParseExact("02/06/2019 02:37:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Μπύρα",
+                    Amount = 1.6,
+                    Date = DateTime.ParseExact("02/06/2019 02:37:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Πουρμπουάρ",
+                    Amount = 1,
+                    Date = DateTime.ParseExact("02/06/2019 02:38:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Xarisma",
+                    Amount = 0.1,
+                    Date = DateTime.ParseExact("02/06/2019 17:53:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Food",
+                    Amount = 5.5,
+                    Date = DateTime.ParseExact("03/06/2019 00:28:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Gasoline",
+                    Amount = 3,
+                    Date = DateTime.ParseExact("03/06/2019 02:34:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ψιλικά",
+                    Amount = 3.3,
+                    Date = DateTime.ParseExact("03/06/2019 02:35:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ασφάλεια Nexus",
+                    Amount = 55,
+                    Date = DateTime.ParseExact("03/06/2019 12:45:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Gas Nexus",
+                    Amount = 19,
+                    Date = DateTime.ParseExact("03/06/2019 12:45:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ciggies",
+                    Amount = 0.5,
+                    Date = DateTime.ParseExact("03/06/2019 19:32:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Βόλτα",
+                    Amount = 7.5,
+                    Date = DateTime.ParseExact("03/06/2019 19:30:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Coffee",
+                    Amount = 2.5,
+                    Date = DateTime.ParseExact("04/06/2019 13:02:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "SuperMarket",
+                    Amount = 12.8,
+                    Date = DateTime.ParseExact("04/06/2019 17:30:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Βόλτα",
+                    Amount = 13.9,
+                    Date = DateTime.ParseExact("04/06/2019 22:09:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Μπύρα",
+                    Amount = 20,
+                    Date = DateTime.ParseExact("06/06/2019 15:28:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Βόλτα",
+                    Amount = 6.5,
+                    Date = DateTime.ParseExact("06/06/2019 15:28:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ciggies",
+                    Amount = 13.9,
+                    Date = DateTime.ParseExact("06/06/2019 15:29:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Πουρμπουάρ",
+                    Amount = 4,
+                    Date = DateTime.ParseExact("06/06/2019 22:21:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Food",
+                    Amount = 2,
+                    Date = DateTime.ParseExact("06/06/2019 22:39:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Gasoline",
+                    Amount = 4.5,
+                    Date = DateTime.ParseExact("07/06/2019 18:34:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Xarisma",
+                    Amount = 0.2,
+                    Date = DateTime.ParseExact("07/06/2019 21:38:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Food",
+                    Amount = 3,
+                    Date = DateTime.ParseExact("08/06/2019 00:23:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Μπύρα",
+                    Amount = 2.4,
+                    Date = DateTime.ParseExact("08/06/2019 02:53:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ciggies",
+                    Amount = 0.5,
+                    Date = DateTime.ParseExact("08/06/2019 02:55:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ciggies",
+                    Amount = 8.7,
+                    Date = DateTime.ParseExact("08/06/2019 17:10:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Gasoline",
+                    Amount = 4,
+                    Date = DateTime.ParseExact("08/06/2019 19:31:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Μπύρα",
+                    Amount = 1.2,
+                    Date = DateTime.ParseExact("09/06/2019 02:50:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Gasoline",
+                    Amount = 4,
+                    Date = DateTime.ParseExact("09/06/2019 19:04:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ciggies",
+                    Amount = 1,
+                    Date = DateTime.ParseExact("10/06/2019 03:44:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ψιλικά",
+                    Amount = 3.2,
+                    Date = DateTime.ParseExact("10/06/2019 03:44:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Λαλί",
+                    Amount = 10,
+                    Date = DateTime.ParseExact("10/06/2019 13:24:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Coffee",
+                    Amount = 1.8,
+                    Date = DateTime.ParseExact("10/06/2019 13:52:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ρεύμα",
+                    Amount = 60,
+                    Date = DateTime.ParseExact("11/06/2019 12:21:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Gasoline",
+                    Amount = 3,
+                    Date = DateTime.ParseExact("12/06/2019 01:54:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Βόλτα",
+                    Amount = 43.8,
+                    Date = DateTime.ParseExact("13/06/2019 01:06:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Βόλτα",
+                    Amount = 14,
+                    Date = DateTime.ParseExact("14/06/2019 14:44:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ψώνια",
+                    Amount = 17.9,
+                    Date = DateTime.ParseExact("14/06/2019 18:13:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Βόλτα",
+                    Amount = 14,
+                    Date = DateTime.ParseExact("14/06/2019 18:14:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ciggies",
+                    Amount = 0.5,
+                    Date = DateTime.ParseExact("15/06/2019 02:53:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Μπύρα",
+                    Amount = 1.6,
+                    Date = DateTime.ParseExact("15/06/2019 02:53:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Food",
+                    Amount = 50,
+                    Date = DateTime.ParseExact("15/06/2019 02:54:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ciggies",
+                    Amount = 7.7,
+                    Date = DateTime.ParseExact("15/06/2019 19:26:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Gasoline",
+                    Amount = 4,
+                    Date = DateTime.ParseExact("16/06/2019 19:12:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Food",
+                    Amount = 6.6,
+                    Date = DateTime.ParseExact("16/06/2019 20:52:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Food",
+                    Amount = 2.8,
+                    Date = DateTime.ParseExact("16/06/2019 23:31:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Gas Nexus",
+                    Amount = 10,
+                    Date = DateTime.ParseExact("17/06/2019 14:18:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Food",
+                    Amount = 1.5,
+                    Date = DateTime.ParseExact("17/06/2019 18:59:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Gasoline",
+                    Amount = 4,
+                    Date = DateTime.ParseExact("17/06/2019 21:03:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ciggies",
+                    Amount = 8.6,
+                    Date = DateTime.ParseExact("17/06/2019 21:04:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Gasoline",
+                    Amount = 3,
+                    Date = DateTime.ParseExact("18/06/2019 22:23:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Μπύρα",
+                    Amount = 3.6,
+                    Date = DateTime.ParseExact("19/06/2019 12:39:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ciggies",
+                    Amount = 8.7,
+                    Date = DateTime.ParseExact("19/06/2019 21:04:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Βόλτα",
+                    Amount = 5.2,
+                    Date = DateTime.ParseExact("20/06/2019 12:13:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Coffee",
+                    Amount = 11.4,
+                    Date = DateTime.ParseExact("21/06/2019 12:00:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Βόλτα",
+                    Amount = 13.2,
+                    Date = DateTime.ParseExact("21/06/2019 12:00:35", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Food",
+                    Amount = 7,
+                    Date = DateTime.ParseExact("21/06/2019 12:01:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Coffee",
+                    Amount = 2.5,
+                    Date = DateTime.ParseExact("21/06/2019 17:00:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Xarisma",
+                    Amount = 0.6,
+                    Date = DateTime.ParseExact("21/06/2019 23:54:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ciggies",
+                    Amount = 8.6,
+                    Date = DateTime.ParseExact("22/06/2019 02:33:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Μπύρα",
+                    Amount = 2,
+                    Date = DateTime.ParseExact("22/06/2019 14:14:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Gasoline",
+                    Amount = 4,
+                    Date = DateTime.ParseExact("22/06/2019 21:08:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Food",
+                    Amount = 0.5,
+                    Date = DateTime.ParseExact("23/06/2019 18:09:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Gasoline",
+                    Amount = 4,
+                    Date = DateTime.ParseExact("23/06/2019 18:56:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ciggies",
+                    Amount = 8.2,
+                    Date = DateTime.ParseExact("24/06/2019 00:52:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Λαλί",
+                    Amount = 10,
+                    Date = DateTime.ParseExact("24/06/2019 12:35:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ψιλικά",
+                    Amount = 2.9,
+                    Date = DateTime.ParseExact("24/06/2019 12:35:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Gas Nexus",
+                    Amount = 16,
+                    Date = DateTime.ParseExact("25/06/2019 10:13:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Βόλτα",
+                    Amount = 26.7,
+                    Date = DateTime.ParseExact("25/06/2019 18:41:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ρεύμα",
+                    Amount = 100,
+                    Date = DateTime.ParseExact("25/06/2019 18:43:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Food",
+                    Amount = 8.7,
+                    Date = DateTime.ParseExact("26/06/2019 01:20:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Coffee Island",
+                    Amount = 2.2,
+                    Date = DateTime.ParseExact("26/06/2019 14:31:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Λοιπά έξοδα",
+                    Amount = 22.3,
+                    Date = DateTime.ParseExact("27/06/2019 22:22:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ciggies",
+                    Amount = 9.2,
+                    Date = DateTime.ParseExact("28/06/2019 16:59:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Λοιπά έξοδα",
+                    Amount = 5.2,
+                    Date = DateTime.ParseExact("28/06/2019 17:00:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Gasoline",
+                    Amount = 4,
+                    Date = DateTime.ParseExact("28/06/2019 20:29:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Gas Nexus",
+                    Amount = 10,
+                    Date = DateTime.ParseExact("30/06/2019 10:29:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ciggies",
+                    Amount = 8.7,
+                    Date = DateTime.ParseExact("30/06/2019 10:30:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Tolls",
+                    Amount = 1.7,
+                    Date = DateTime.ParseExact("30/06/2019 10:31:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Μπιτσόμπαρο",
+                    Amount = 11,
+                    Date = DateTime.ParseExact("30/06/2019 23:42:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ψιλικά",
+                    Amount = 7.8,
+                    Date = DateTime.ParseExact("30/06/2019 23:43:03", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                }
+            };
+            // July
+            List<ExpensesTrack> addExpensesJuly = new List<ExpensesTrack>
             {
-                Descr = "Ciggies",
-                Amount = 8.6,
-                Date = DateTime.ParseExact("01/06/2019 15:39:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Gasoline",
-                Amount = 4.5,
-                Date = DateTime.ParseExact("02/06/2019 02:37:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Μπύρα",
-                Amount = 1.6,
-                Date = DateTime.ParseExact("02/06/2019 02:37:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Πουρμπουάρ",
-                Amount = 1,
-                Date = DateTime.ParseExact("02/06/2019 02:38:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Xarisma",
-                Amount = 0.1,
-                Date = DateTime.ParseExact("02/06/2019 17:53:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Food",
-                Amount = 5.5,
-                Date = DateTime.ParseExact("03/06/2019 00:28:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Gasoline",
-                Amount = 3,
-                Date = DateTime.ParseExact("03/06/2019 02:34:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Ψιλικά",
-                Amount = 3.3,
-                Date = DateTime.ParseExact("03/06/2019 02:35:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Ασφάλεια Nexus",
-                Amount = 55,
-                Date = DateTime.ParseExact("03/06/2019 12:45:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Gas Nexus",
-                Amount = 19,
-                Date = DateTime.ParseExact("03/06/2019 12:45:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Ciggies",
-                Amount = 0.5,
-                Date = DateTime.ParseExact("03/06/2019 19:32:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Βόλτα",
-                Amount = 7.5,
-                Date = DateTime.ParseExact("03/06/2019 19:30:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Coffee",
-                Amount = 2.5,
-                Date = DateTime.ParseExact("04/06/2019 13:02:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "SuperMarket",
-                Amount = 12.8,
-                Date = DateTime.ParseExact("04/06/2019 17:30:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Βόλτα",
-                Amount = 13.9,
-                Date = DateTime.ParseExact("04/06/2019 22:09:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Μπύρα",
-                Amount = 20,
-                Date = DateTime.ParseExact("06/06/2019 15:28:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Βόλτα",
-                Amount = 6.5,
-                Date = DateTime.ParseExact("06/06/2019 15:28:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Ciggies",
-                Amount = 13.9,
-                Date = DateTime.ParseExact("06/06/2019 15:29:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Πουρμπουάρ",
-                Amount = 4,
-                Date = DateTime.ParseExact("06/06/2019 22:21:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Food",
-                Amount = 2,
-                Date = DateTime.ParseExact("06/06/2019 22:39:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Gasoline",
-                Amount = 4.5,
-                Date = DateTime.ParseExact("07/06/2019 18:34:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Xarisma",
-                Amount = 0.2,
-                Date = DateTime.ParseExact("07/06/2019 21:38:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Food",
-                Amount = 3,
-                Date = DateTime.ParseExact("08/06/2019 00:23:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Μπύρα",
-                Amount = 2.4,
-                Date = DateTime.ParseExact("08/06/2019 02:53:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Ciggies",
-                Amount = 0.5,
-                Date = DateTime.ParseExact("08/06/2019 02:55:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Ciggies",
-                Amount = 8.7,
-                Date = DateTime.ParseExact("08/06/2019 17:10:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Gasoline",
-                Amount = 4,
-                Date = DateTime.ParseExact("08/06/2019 19:31:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Μπύρα",
-                Amount = 1.2,
-                Date = DateTime.ParseExact("09/06/2019 02:50:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Gasoline",
-                Amount = 4,
-                Date = DateTime.ParseExact("09/06/2019 19:04:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Ciggies",
-                Amount = 1,
-                Date = DateTime.ParseExact("10/06/2019 03:44:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Ψιλικά",
-                Amount = 3.2,
-                Date = DateTime.ParseExact("10/06/2019 03:44:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Λαλί",
-                Amount = 10,
-                Date = DateTime.ParseExact("10/06/2019 13:24:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Coffee",
-                Amount = 1.8,
-                Date = DateTime.ParseExact("10/06/2019 13:52:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Ρεύμα",
-                Amount = 60,
-                Date = DateTime.ParseExact("11/06/2019 12:21:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
+                new ExpensesTrack
+                {
+                    Descr = "Gas Nexus",
+                    Amount = 10,
+                    Date = DateTime.ParseExact("02/07/2019 07:26:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Μπουγάτσα",
+                    Amount = 3.6,
+                    Date = DateTime.ParseExact("02/07/2019 07:27:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Gas Nexus",
+                    Amount = 11.6,
+                    Date = DateTime.ParseExact("03/07/2019 06:54:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Βόλτα",
+                    Amount = 8.7,
+                    Date = DateTime.ParseExact("03/07/2019 07:16:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "SuperMarket",
+                    Amount = 16,
+                    Date = DateTime.ParseExact("03/07/2019 20:35:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Βόλτα",
+                    Amount = 7.5,
+                    Date = DateTime.ParseExact("04/07/2019 22:32:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Μπουγάτσα",
+                    Amount = 1.8,
+                    Date = DateTime.ParseExact("05/07/2019 10:38:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
 
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Gasoline",
-                Amount = 3,
-                Date = DateTime.ParseExact("12/06/2019 01:54:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Βόλτα",
-                Amount = 43.8,
-                Date = DateTime.ParseExact("13/06/2019 01:06:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Βόλτα",
-                Amount = 14,
-                Date = DateTime.ParseExact("14/06/2019 14:44:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Ψώνια",
-                Amount = 17.9,
-                Date = DateTime.ParseExact("14/06/2019 18:13:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Βόλτα",
-                Amount = 14,
-                Date = DateTime.ParseExact("14/06/2019 18:14:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Ciggies",
-                Amount = 0.5,
-                Date = DateTime.ParseExact("15/06/2019 02:53:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
+                new ExpensesTrack
+                {
+                    Descr = "Ciggies",
+                    Amount = 0.4,
+                    Date = DateTime.ParseExact("05/07/2019 20:22:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Xarisma",
+                    Amount = 0.8,
+                    Date = DateTime.ParseExact("06/07/2019 01:40:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ciggies",
+                    Amount = 7.7,
+                    Date = DateTime.ParseExact("06/07/2019 16:17:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Λάστιχο",
+                    Amount = 13,
+                    Date = DateTime.ParseExact("06/07/2019 16:18:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Gasoline",
+                    Amount = 3,
+                    Date = DateTime.ParseExact("06/07/2019 18:06:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },                
+                new ExpensesTrack
+                {
+                    Descr = "Xarisma",
+                    Amount = 0.1,
+                    Date = DateTime.ParseExact("06/07/2019 19:17:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Μπύρα",
+                    Amount = 9.6,
+                    Date = DateTime.ParseExact("07/07/2019 10:51:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Βόλτα",
+                    Amount = 28,
+                    Date = DateTime.ParseExact("08/07/2019 12:28:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Gas Nexus",
+                    Amount = 13,
+                    Date = DateTime.ParseExact("08/07/2019 20:35:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Νερό",
+                    Amount = 1,
+                    Date = DateTime.ParseExact("08/07/2019 19:05:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ciggies",
+                    Amount = 8.7,
+                    Date = DateTime.ParseExact("08/07/2019 19:05:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Βόλτα",
+                    Amount = 10,
+                    Date = DateTime.ParseExact("09/07/2019 23:37:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Gas Nexus",
+                    Amount = 10,
+                    Date = DateTime.ParseExact("09/07/2019 23:37:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Μπύρα",
+                    Amount = 1.5,
+                    Date = DateTime.ParseExact("09/07/2019 23:37:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Coffee",
+                    Amount = 3.4,
+                    Date = DateTime.ParseExact("11/07/2019 08:45:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Ciggies",
+                    Amount = 8.2,
+                    Date = DateTime.ParseExact("11/07/2019 22:46:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Gas Nexus",
+                    Amount = 5,
+                    Date = DateTime.ParseExact("11/07/2019 22:46:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Service Nexus",
+                    Amount = 14,
+                    Date = DateTime.ParseExact("11/07/2019 22:47:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+                new ExpensesTrack
+                {
+                    Descr = "Μπουγάτσα",
+                    Amount = 1.8,
+                    Date = DateTime.ParseExact("12/07/2019 08:16:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                },
+            };
 
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Μπύρα",
-                Amount = 1.6,
-                Date = DateTime.ParseExact("15/06/2019 02:53:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Food",
-                Amount = 50,
-                Date = DateTime.ParseExact("15/06/2019 02:54:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Ciggies",
-                Amount = 7.7,
-                Date = DateTime.ParseExact("15/06/2019 19:26:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
 
-            addexpense.Add(new ExpensesTrack
+            foreach (var s in addExpensesMay)
             {
-                Descr = "Gasoline",
-                Amount = 4,
-                Date = DateTime.ParseExact("16/06/2019 19:12:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
+                SqlTableExpenses.InsertData(s);
+            }
+            foreach (var s in addExpensesJune)
             {
-                Descr = "Food",
-                Amount = 6.6,
-                Date = DateTime.ParseExact("16/06/2019 20:52:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Food",
-                Amount = 2.8,
-                Date = DateTime.ParseExact("16/06/2019 23:31:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Gas Nexus",
-                Amount = 10,
-                Date = DateTime.ParseExact("17/06/2019 14:18:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Food",
-                Amount = 1.5,
-                Date = DateTime.ParseExact("17/06/2019 18:59:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Gasoline",
-                Amount = 4,
-                Date = DateTime.ParseExact("17/06/2019 21:03:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-
-            addexpense.Add(new ExpensesTrack
-            {
-                Descr = "Ciggies",
-                Amount = 8.6,
-                Date = DateTime.ParseExact("17/06/2019 23:03:52", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-            });
-
-            foreach (var s in addexpense)
+                SqlTableExpenses.InsertData(s);
+            }
+            foreach (var s in addExpensesJuly)
             {
                 SqlTableExpenses.InsertData(s);
             }
